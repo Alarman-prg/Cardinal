@@ -18,9 +18,6 @@ public class UsersService implements UserDetailsService {
     @Autowired
     private UsersRepository usersRepository;
 
-    @Autowired
-    private PasswordEncoder passwordEncoder;
-
     @Override
     public UserDetails loadUserByUsername(String username) {
         Optional<UsersEntity> getUser = usersRepository.findByUsername(username);

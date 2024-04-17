@@ -3,6 +3,8 @@ package org.csc340.cardinalv2.users.entity;
 import jakarta.persistence.*;
 import lombok.Getter;
 import lombok.Setter;
+import org.csc340.cardinalv2.SecurityConfiguration;
+import org.springframework.security.crypto.password.PasswordEncoder;
 
 import java.util.Objects;
 
@@ -36,7 +38,7 @@ public class UsersEntity {
     public UsersEntity(String username, String password) {
         this.username = username;
         this.password = password;
-//        this.password = passwordEncoder.encode(password);
+        //this.password = passwordEncoder.encode(password);
     }
 
     @Override
