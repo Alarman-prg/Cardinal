@@ -4,7 +4,6 @@ package com.csc.cardinal.user;
 import jakarta.persistence.*;
 import lombok.Getter;
 import lombok.Setter;
-import org.hibernate.annotations.ColumnDefault;
 
 @Getter
 @Setter
@@ -17,23 +16,18 @@ public class UserEntity {
     private int id;
 
     @Column
-//    @ColumnDefault(value = "user")
     private String username;
 
     @Column
-//    @ColumnDefault(value = "jegreene1@uncg.edu")
     private String email;
 
     @Column
-//    @ColumnDefault(value = "password")
     private String password;
 
     @Column
-//    @ColumnDefault(value = "Jacob")
     private String firstName;
 
     @Column
-//    @ColumnDefault(value = "Greene")
     private String lastName;
 
 
