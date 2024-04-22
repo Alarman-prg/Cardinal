@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Create a group hike</title>
+    <link href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css" rel="stylesheet">
+</head>
+<body>
+<div class="col text-center">
+    <h1>Create your group hike: </h1>
+    <div class="container">
+        <div class="row justify-content-center align-items-center">
+            <div class="col-md-6">
+                <form action="add-hike" method="post">
+                    <div class="mb-3">
+                        <label for="usersFullName" class="form-label">Full Name</label>
+                        <input type="text" class="form-control" id="usersFullName" name="usersFullName"
+                               placeholder="Enter Full Name" required>
+                    </div>
+                    <div class="mb-3">
+                        <label for="trailName" class="form-label">Name of Trail</label>
+                        <input type="text" class="form-control" id="trailName" name="trailName"
+                               placeholder="Enter name of trail">
+                    </div>
+                    <div class="mb-3">
+                        <label for="county" class="form-label">County</label>
+                        <input type="text" class="form-control" id="county" name="county"
+                               placeholder="Enter county">
+                    </div>
+                    <div class="mb-3">
+                        <label for="hikeTime" class="form-label">Time and Date of Hike</label>
+                        <input type="text" class="form-control" id="hikeTime" name="hikeTime"
+                               placeholder="Time and Date(i.e. 07/02/2024 at 10:00 am)">
+                    </div>
+                    <div class="mb-3">
+                        <label for="description" class="form-label">Number of people</label>
+                        <input type="text" class="form-control" id="description" name="description"
+                               placeholder="Max number of people for hike">
+                    </div>
+                    <button type="submit" class="btn btn-primary">Submit</button>
+                </form>
+            </div>
+        </div>
+    </div>
+</body>
+</html>
