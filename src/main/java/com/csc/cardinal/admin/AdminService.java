@@ -30,5 +30,18 @@ public class AdminService {
 
     }
 
+    public void deleteByUsername(String username) {
+        System.out.println("User " + username + " to be deleted");
+
+        if (userRepository.findByUsername(username) != null) {
+            UserEntity user = userService.findByUsername(username);
+            int id = user.getId();
+            deleteUser(id);
+        } else {
+            System.out.println("User " + username + " not found");
+        }
+
+    }
+
 
 }

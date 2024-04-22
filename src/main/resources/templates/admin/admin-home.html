@@ -9,111 +9,216 @@
 </head>
 
 <body>
-
-    <!-- Navigation Bar -->
-    <nav class="navbar navbar-expand-lg navbar-dark bg-dark">
-        <a class="navbar-brand" href="/admin">Admin Dashboard</a>
-        <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNav"
+<!-- Navigation Bar -->
+<nav class="navbar navbar-expand-lg navbar-dark bg-dark">
+    <a class="navbar-brand" href="/admin">Admin Dashboard</a>
+    <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNav"
             aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
-            <span class="navbar-toggler-icon"></span>
-        </button>
-        <div class="collapse navbar-collapse" id="navbarNav">
-            <ul class="navbar-nav ml-auto">
-                <li class="nav-item">
-                    <a class="nav-link" href="/">Logout</a>
-                </li>
-            </ul>
-        </div>
-    </nav>
+        <span class="navbar-toggler-icon"></span>
+    </button>
+    <div class="collapse navbar-collapse" id="navbarNav">
+        <ul class="navbar-nav ml-auto">
+            <li class="nav-item">
+                <a class="nav-link" href="/">Logout</a>
+            </li>
+        </ul>
+    </div>
+</nav>
 
-    <!-- Page Content -->
-    <!-- Main Content -->
-    <main role="main" class="text-center ">
-        <div class="container align-content-md-center p-5 m-2 border border-danger">
-            <h2>User Registration</h2>
-            <form action="user-create" method="post">
-                <div class="row">
-                    <div class="col-md-4">
-                        <div class="form-group">
-                            <label for="email">Email address:</label>
-                            <input type="email" class="form-control" id="email" name="email" required>
-                        </div>
-                    </div>
-                    <div class="col-md-4">
-                        <div class="form-group">
-                            <label for="username">Username:</label>
-                            <input type="text" class="form-control" id="username" name="username" required>
-                        </div>
-                    </div>
-                    <div class="col-md-4">
-                        <div class="form-group">
-                            <label for="password">Password:</label>
-                            <input type="password" class="form-control" id="password" name="password" required>
-                        </div>
-                    </div>
-                </div>
-                <div class="row">
-                    <div class="col-md-4">
-                        <div class="form-group">
-                            <label for="firstName">First Name:</label>
-                            <input type="text" class="form-control" id="firstName" name="firstName" required>
-                        </div>
-                    </div>
-                    <div class="col-md-4">
-                        <div class="form-group">
-                            <label for="lastName">Last Name:</label>
-                            <input type="text" class="form-control" id="lastName" name="lastName" required>
-                        </div>
+<div class="container-fluid text-center p-5 m-2 mx-auto">
+    <div class="row p-1 m-2 mx-auto">
+        <div class="col text-center">
+            <h1>Add a new user below : </h1>
+            <div class="container">
+                <div class="row justify-content-center align-items-center">
+                    <div class="col-md-6">
+                        <form action="add-user" method="post">
+                            <div class="mb-3">
+                                <label for="email" class="form-label">Email address</label>
+                                <input type="email" class="form-control" id="email" name="email" placeholder="Enter Email" required>
+                            </div>
+                            <div class="mb-3">
+                                <label for="username" class="form-label">Username</label>
+                                <input type="text" class="form-control" id="username" name="username" placeholder="Enter Username">
+                            </div>
+                            <div class="mb-3">
+                                <label for="password" class="form-label">Password</label>
+                                <input type="password" class="form-control" id="password" name="password" placeholder="Password">
+                            </div>
+                            <div class="mb-3">
+                                <label for="firstname" class="form-label">First Name</label>
+                                <input type="text" class="form-control" id="firstname" name="firstName" placeholder="Enter First Name">
+                            </div>
+                            <div class="mb-3">
+                                <label for="lastname" class="form-label">Last Name</label>
+                                <input type="text" class="form-control" id="lastname" name="lastName" placeholder="Enter Last Name">
+                            </div>
+                            <button type="submit" class="btn btn-primary">Submit</button>
+                        </form>
                     </div>
                 </div>
-                <button type="submit" class="btn btn-primary">Submit</button>
-            </form>
+            </div>
         </div>
 
-        <div class="container align-content-md-center p-5 m-2 border border-danger">
-            <h2>Delete User</h2>
-            <form action="/user-delete" method="post">
-                <div class="form-group">
-                    <label for="userId">User ID:</label>
-                    <input type="number" class="form-control" id="userId" name="id" required>
+        <div class="col">
+            <h1>Delete a user : </h1>
+            <div class="container">
+                <div class="row justify-content-center align-items-center">
+                    <div class="col-md-6">
+                        <form action="/user-delete-username" method="post">
+                            <div class="my-5 mb-3">
+                                <label for="delete-username" class="form-label">By Username</label>
+                                <input type="text" class="form-control" id="delete-username" name="username" placeholder="Enter username">
+                            </div>
+                            <button type="submit" class="btn btn-primary">Submit</button>
+                        </form>
+
+                        <div class="m-5"></div>
+
+                        <form action="/user-delete-id" method="post">
+                            <div class="mb-3">
+                                <label for="delete-id" class="form-label">By Id</label>
+                                <input type="text" class="form-control" id="delete-id" name="id" placeholder="Enter username">
+                            </div>
+                            <button type="submit" class="btn btn-primary">Submit</button>
+                        </form>
+                    </div>
                 </div>
-                <button type="submit" class="btn btn-danger">Delete User</button>
-            </form>
+            </div>
+
         </div>
+    </div>
+</div>
 
-        <div class="container align-content-md-center p-5 m-2 border border-danger">
-            <h2>User List<br><button type="button" onClick="window.location.reload()" class="btn btn-dark h-100">Refresh the page.</button></h2>
-<!--            <button type="button" onClick="window.location.reload()" class="btn btn-dark h-100">Refresh the page.</button>-->
-            <table class="table">
-                <thead>
-                <tr>
-                    <th>Id</th>
-                    <th>Username</th>
-                    <th>Email</th>
-                    <th>Password</th>
-                    <th>First Name</th>
-                    <th>Last Name</th>
-                </tr>
-                </thead>
-                <tbody>
-                <tr th:each="user : ${userList}">
-                    <td th:text="${user.id}"></td>
-                    <td th:text="${user.username}"></td>
-                    <td th:text="${user.email}"></td>
-                    <td th:text="${user.password}"></td>
-                    <td th:text="${user.firstName}"></td>
-                    <td th:text="${user.lastName}"></td>
-                </tr>
-                </tbody>
-            </table>
+<div class="container-fluid text-center p-5 m-2 mx-auto">
+    <div class="row p-1 m-2 mx-auto">
+        <div class="col text-center">
+            <h1> List Users </h1>
         </div>
+    </div>
+</div>
 
 
-    </main>
 
-    <script src="https://code.jquery.com/jquery-3.5.1.slim.min.js"></script>
-    <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.9.2/dist/umd/popper.min.js"></script>
-    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<!-- Page Content -->
+<!-- Main Content
+<main role="main" class="text-center ">
+    <div class="container align-content-md-center p-5 m-2 border border-danger">
+        <h2>User Registration</h2>
+        <form action="user-create" method="post">
+            <div class="row">
+                <div class="col-md-4">
+                    <div class="form-group">
+                        <label for="email">Email address:</label>
+                        <input type="email" class="form-control" id="email" name="email" required>
+                    </div>
+                </div>
+                <div class="col-md-4">
+                    <div class="form-group">
+                        <label for="username">Username:</label>
+                        <input type="text" class="form-control" id="username" name="username" required>
+                    </div>
+                </div>
+                <div class="col-md-4">
+                    <div class="form-group">
+                        <label for="password">Password:</label>
+                        <input type="password" class="form-control" id="password" name="password" required>
+                    </div>
+                </div>
+            </div>
+            <div class="row">
+                <div class="col-md-4">
+                    <div class="form-group">
+                        <label for="firstName">First Name:</label>
+                        <input type="text" class="form-control" id="firstName" name="firstName" required>
+                    </div>
+                </div>
+                <div class="col-md-4">
+                    <div class="form-group">
+                        <label for="lastName">Last Name:</label>
+                        <input type="text" class="form-control" id="lastName" name="lastName" required>
+                    </div>
+                </div>
+            </div>
+            <button type="submit" class="btn btn-primary">Submit</button>
+        </form>
+    </div>
+
+    <div class="container align-content-md-center p-5 m-2 border border-danger">
+        <h2>Delete User</h2>
+        <form action="/user-delete" method="post">
+            <div class="form-group">
+                <label for="userId">User ID:</label>
+                <input type="number" class="form-control" id="userId" name="id" required>
+            </div>
+            <button type="submit" class="btn btn-danger">Delete User</button>
+        </form>
+    </div>
+
+    <div class="container align-content-md-center p-5m-2 border border-danger">
+        <h2>User List<br><button type="button" onClick="window.location.reload()" class="btn btn-dark h-100">Refresh the page.</button></h2>
+        <button type="button" onClick="window.location.reload()" class="btn btn-dark h-100">Refresh the page.</button>
+        <table class="table">
+            <thead>
+            <tr>
+                <th>Id</th>
+                <th>Username</th>
+                <th>Email</th>
+                <th>Password</th>
+                <th>First Name</th>
+                <th>Last Name</th>
+            </tr>
+            </thead>
+            <tbody>
+            <tr th:each="user : ${userList}">
+                <td th:text="${user.id}"></td>
+                <td th:text="${user.username}"></td>
+                <td th:text="${user.email}"></td>
+                <td th:text="${user.password}"></td>
+                <td th:text="${user.firstName}"></td>
+                <td th:text="${user.lastName}"></td>
+            </tr>
+            </tbody>
+        </table>
+    </div>
+
+
+
+</main>
+-->
+
+
+<script src="https://code.jquery.com/jquery-3.5.1.slim.min.js"></script>
+<script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.9.2/dist/umd/popper.min.js"></script>
+<script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
 </body>
 
 </html>

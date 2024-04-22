@@ -69,4 +69,9 @@ public class UserService {
         userRepository.deleteById(id);
     }
 
+
+    public UserEntity findByUsername(String username) {
+        return userRepository.findByUsername(username);
+    }
+
 }

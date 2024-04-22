@@ -20,29 +20,82 @@ public class AdminController {
     AdminService adminService;
 
     @GetMapping("/admin")
-    public String admin(Model model) {
-        // Assuming userRepository is autowired
-        List<UserEntity> userList = userRepository.findAll();
-        model.addAttribute("userList", userList);
+    public String getHome() {
         return "admin/admin-home";
     }
 
-    @PostMapping("/admin")
-    public String adminPost() {
+    @GetMapping("/add-user")
+    public String redirectAddUser() {
         return "admin/admin-home";
     }
 
-    @PostMapping("/user-create")
-    public String createUser(@ModelAttribute UserEntity user) {
+    @PostMapping("/add-user")
+    public String addUser(@ModelAttribute UserEntity user) {
         adminService.createUser(user);
-        return "admin/user-created";
+        return "redirect:/admin";
     }
 
-    @PostMapping("/user-delete")
-    public String create(@RequestParam("id") Long id) {
+    @PostMapping("/user-delete-id")
+    public String deleteById(@RequestParam("id") Long id) {
         adminService.deleteUser(id);
-        return "admin/user-deleted";
+        return "redirect:/admin";
     }
 
+    @PostMapping("user-delete-username")
+    public String deleteByUsername(@RequestParam("username") String username) {
+        adminService.deleteByUsername(username);
+        return "redirect:/admin";
+    }
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+    // OLD 4/21/24 8:37pm
+
+//    @GetMapping("/admin")
+//    public String admin(Model model) {
+//        // Assuming userRepository is autowired
+//        List<UserEntity> userList = userRepository.findAll();
+//        model.addAttribute("userList", userList);
+//        return "admin/admin-home";
+//    }
+//
+//    @PostMapping("/admin")
+//    public String adminPost() {
+//        return "admin/admin-home";
+//    }
+//
+//    @PostMapping("/user-create")
+//    public String createUser(@ModelAttribute UserEntity user) {
+//        adminService.createUser(user);
+//        return "admin/user-created";
+//    }
+//
 
 }
