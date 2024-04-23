@@ -32,7 +32,7 @@
             <div class="container">
                 <div class="row justify-content-center align-items-center">
                     <div class="col-md-6">
-                        <form action="add-user" method="post">
+                        <form action="/add-user" method="post">
                             <div class="mb-3">
                                 <label for="email" class="form-label">Email address</label>
                                 <input type="email" class="form-control" id="email" name="email"
@@ -85,7 +85,7 @@
                             <div class="mb-3">
                                 <label for="delete-id" class="form-label">By Id</label>
                                 <input type="text" class="form-control" id="delete-id" name="id"
-                                       placeholder="Enter username">
+                                       placeholder="Enter Id">
                             </div>
                             <button type="submit" class="btn btn-primary">Submit</button>
                         </form>
@@ -93,12 +93,6 @@
                 </div>
             </div>
         </div>
-
-<!--        <div class="col text-center">-->
-<!--            <h3>How many users are there?</h3>-->
-<!--            <p><span th:text="${}"></span></p>-->
-<!--        </div>-->
-
     </div>
 
 </div>
