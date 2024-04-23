@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Group Hikes</title>
+    <style>
+        .hike-box {
+            border: 1px solid #ccc;
+            padding: 10px;
+            margin-bottom: 10px;
+        }
+    </style>
+</head>
+<body>
+<div class="container">
+    <h2>Group Hikes</h2>
+    <!-- Iterate over the list of group hikes and display them -->
+    <!--/*@thymesVar id="hikeList" type=""*/-->
+    <div th:each="groupHike : ${hikeList}" class="hike-box">
+        <p><span class="label">Hiker's Name:</span> <span th:text="${groupHike.usersFullName}"></span></p>
+        <p><span class="label">Trail's Name:</span> <span th:text="${groupHike.trailName}">Hike Name</span></p>
+        <p><span class="label">County:</span> <span th:text="${groupHike.county}">Hike Name</span></p>
+
+
+
+    </div>
+</div>
+</body>
+</html>

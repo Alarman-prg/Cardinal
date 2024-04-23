@@ -9,7 +9,7 @@ import java.util.Objects;
 @Service
 public class GroupHikeService {
 
-    //@Autowired
+    @Autowired
     GroupHikeRepository groupHikeRepository;
 
     /**
@@ -22,7 +22,7 @@ public class GroupHikeService {
         return groupHikeRepository.save(groupHike);
     }
 
-    //@Autowired
+    @Autowired
     public GroupHikeService(GroupHikeRepository groupHikeRepository) {
         this.groupHikeRepository = groupHikeRepository;
     }

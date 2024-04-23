@@ -12,8 +12,10 @@ import java.util.Optional;
 @Controller
 public class GroupHikeController {
 
+    @Autowired
     GroupHikeRepository groupHikeRepository;
 
+    @Autowired
     GroupHikeService groupHikeService; // Declare the service
 
 //    @PostMapping("/grouphikes")
@@ -48,6 +50,11 @@ public class GroupHikeController {
     @GetMapping("/grouphikes")
     public List<GroupHikeEntity> findAll() {
         return groupHikeService.fetch();
+    }
+
+    @GetMapping("/user-home")
+    public String userHome() {
+        return "user/user-home"; // Assuming "user-home" is the name of your HTML template
     }
 
 }
