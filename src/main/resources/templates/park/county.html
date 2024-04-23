@@ -1,0 +1,143 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Group Hikes</title>
+    <style>
+        /* hike list styles*/
+        .form_style_hikes {
+            width: 600px;
+            padding: 20px;
+            border: 1px solid #ccc;
+            border-radius: 5px;
+            background-color: #fff;
+            float: right;
+        }
+
+        .hike-box {
+            border: 1px solid #ccc;
+            padding: 20px;
+            margin-bottom: 20px;
+            border-radius: 5px;
+            background-color: #f9f9f9;
+        }
+
+        .hike-info {
+            margin-bottom: 10px;
+            font-size: 16px;
+            line-height: 1.6;
+        }
+
+        .hike-info span {
+            font-weight: bold;
+            color: #333;
+        }
+
+        /* park list styles*/
+        .parks-container {
+            width: 300px;
+            margin: 50px 20px;
+            float: left;
+        }
+
+        .parks-container ul {
+            list-style-type: none;
+            padding: 0;
+        }
+
+        .parks-container li {
+            margin-bottom: 10px;
+        }
+
+        .navbar ul {
+            list-style-type: none;
+            background-color: #4F6F4C;
+            padding: 0px;
+            margin: 0px;
+            overflow: hidden;
+
+        }
+
+        .navbar a {
+            color: white;
+            text-decoration: none;
+            padding: 15px;
+            display: block;
+            display: inline-block;
+            text-align: center;
+        }
+
+        /* Navbar styles */
+        .navbar a:hover {
+            background-color: #EE6963;
+        }
+
+        .navbar li {
+            float: left;
+        }
+    </style>
+</head>
+<body>
+
+<div class="navbar">
+    <ul>
+        <li><a href="index.html">Wildfinder</a></li>
+    </ul>
+</div>
+
+<div class="parks-container">
+<h2>List of Parks</h2>
+
+<ul>
+    <li>Park 1</li>
+    <li>Park 2</li>
+    <li>Park 3</li>
+    <!-- Add more parks as needed -->
+</ul>
+</div>
+
+
+
+
+<div class="form_style_hikes">
+    <h2 class="text-center">Group Hikes</h2>
+    <a th:href="@{/add-hike}" class="btn btn-primary">Create a new Group Hike</a>
+    <table>
+        <tbody>
+        <tr th:each="hike : ${hikeList}">
+            <td>
+                <div class="hike-box">
+                    <div class="hike-info">
+                        <span>Name:</span>
+                        <span th:text="${hike.usersFullName}"/>
+                    </div>
+                    <div class="hike-info">
+                        <span>Trail Name:</span>
+                        <span th:text="${hike.trailName}"/>
+                    </div>
+                    <div class="hike-info">
+                        <span>County:</span>
+                        <span th:text="${hike.county}"/>
+                    </div>
+                    <div class="hike-info">
+                        <span>Start Hike Time:</span>
+                        <span th:text="${hike.hikeTime}"/>
+                    </div>
+                    <div class="hike-info">
+                        <span>Number of hikers:</span>
+                        <span th:text="${hike.description}"/>
+                    </div>
+                </div>
+            </td>
+        </tr>
+        </tbody>
+    </table>
+</div>
+</body>
+</html>
+
+
+
+</body>
+</html>

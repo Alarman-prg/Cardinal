@@ -1,11 +1,13 @@
 package com.csc.cardinal.user;
 
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.stereotype.Controller;
+import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.*;
 
 import java.util.List;
 
-@RestController
+@Controller
 public class UserController {
 
     @Autowired
@@ -33,4 +35,16 @@ public class UserController {
     public void delete(@PathVariable Long id){
         userService.delete(id);
     }
+
+    @GetMapping("/login")
+    public String login() {
+        return "/user/login";
+    }
+
+    @PostMapping("/login")
+    public String processLogin(Model model) {
+        return "user/user-home";
+    }
+
+
 }
