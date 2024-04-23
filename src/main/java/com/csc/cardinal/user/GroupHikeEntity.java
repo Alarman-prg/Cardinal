@@ -12,7 +12,6 @@ import lombok.Setter;
 @Table(name = "hikes")
 public class GroupHikeEntity {
 
-
     @Id
     @GeneratedValue(strategy = GenerationType.AUTO)
     private int id;

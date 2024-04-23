@@ -41,10 +41,10 @@ public class GroupHikeController {
         return "redirect:/user-home"; // Redirect to the hiking list page
     }
 
-    @GetMapping("/create-group-hike") // Handler for /create-group-hike
+    @GetMapping("/create-group-hike")
     public String showCreateGroupHikeForm(Model model) {
         model.addAttribute("groupHike", new GroupHikeEntity());
-        return "park/create-group-hike"; // Assuming you have an HTML template named create-group-hike.html
+        return "park/create-group-hike";
     }
 
     @GetMapping("/grouphikes")

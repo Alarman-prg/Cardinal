@@ -43,5 +43,9 @@ public class AdminService {
 
     }
 
+    public long userRepoLength () {
+        return userRepository.count();
+    }
+
 
 }
