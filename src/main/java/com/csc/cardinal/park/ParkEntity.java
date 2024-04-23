@@ -41,7 +41,7 @@ public class ParkEntity {
     public ParkEntity() {
 
     }
-    public ParkEntity(String name, String description, double length, String address, String county ) {
+    public ParkEntity(String name, String description, double length, String address, String county, String operator) {
         this.name = name;
         this.description = description;
         this.rating_Total = 0.0;
@@ -49,6 +49,7 @@ public class ParkEntity {
         this.length = length;
         this.address = address;
         this.county = county;
+        this.operator = operator;
     }
 
     public void setName(String name) {
