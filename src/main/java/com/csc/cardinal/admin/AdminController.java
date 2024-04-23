@@ -4,9 +4,11 @@ import com.csc.cardinal.user.UserEntity;
 import com.csc.cardinal.user.UserRepository;
 import com.csc.cardinal.user.UserService;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.http.ResponseEntity;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.*;
+import org.springframework.web.servlet.view.RedirectView;
 
 import java.util.List;
 import java.util.Optional;
@@ -64,7 +66,7 @@ public class AdminController {
         return "redirect:/admin";
     }
 
-    @PostMapping("user-delete-username")
+    @PostMapping("/user-delete-username")
     public String deleteByUsername(@RequestParam("username") String username) {
         adminService.deleteByUsername(username);
         return "redirect:/admin";
