@@ -18,7 +18,7 @@
     <!-- Iterate over the list of group hikes and display them -->
     <!--/*@thymesVar id="hikeList" type=""*/-->
     <div th:each="groupHike : ${hikeList}" class="hike-box">
-        <p><span class="label">Hiker's Name:</span> <span th:text="${groupHike.usersFullName}"></span></p>
+        <p><span class="label">Hiker's Name:</span> <span th:text="${groupHike.usegit rsFullName}"></span></p>
         <p><span class="label">Trail's Name:</span> <span th:text="${groupHike.trailName}">Hike Name</span></p>
         <p><span class="label">County:</span> <span th:text="${groupHike.county}">Hike Name</span></p>
 
