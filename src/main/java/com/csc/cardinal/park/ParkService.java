@@ -33,6 +33,32 @@ public class ParkService {
     public List<ParkEntity> fetch() {
         return (List<ParkEntity>) parkRepository.findAll();
     }
+    /**
+     * Get a record from parks table
+     *
+     * @return ParkEntity
+     */
+    public ParkEntity findByName(String name) {
+        return parkRepository.findByName(name);
+    }
+    /**
+     * Get all records from parks table with certain county
+     *
+     * @param county
+     * @return List<ParkEntity>
+     */
+    public List<ParkEntity> findAllByCounty(String county){
+        return parkRepository.findAllByCounty(county);
+    }
+    /**
+     * Get all records from parks table
+     *
+     * @param operator
+     * @return List<ParkEntity>
+     */
+    public List<ParkEntity> findAllByOperator(String operator){
+        return parkRepository.findAllByOperator(operator);
+    }
 
     /**
      * Update record in users table
@@ -75,11 +101,5 @@ public class ParkService {
         return parkRepository.findById(id);
     }
 
-    public ParkEntity findByName(String name) {
-        return parkRepository.findByName(name);
-    }
-    public List<ParkEntity> findAllByCounty(String county){
-        return parkRepository.findAllByCounty(county);
-    }
 }
 
