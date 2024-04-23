@@ -13,7 +13,7 @@
             <div class="container">
                 <div class="row justify-content-center align-items-center">
                     <div class="col-md-6">
-                        <form action="/parks" method="post">
+                        <form action="/parkOp" method="post">
                             <div class="mb-3">
                                 <label for="name" class="form-label">name</label>
                                 <input type="text" class="form-control" id="name" name="name"
@@ -37,6 +37,11 @@
                             <div class="mb-3">
                                 <label for="county" class="form-label">County</label>
                                 <input type="text" class="form-control" id="county" name="county"
+                                       placeholder="Enter County">
+                            </div>
+                            <div class="mb-3">
+                                <label for="operator" class="form-label">County</label>
+                                <input type="text" class="form-control" id="operator" name="operator"
                                        placeholder="Enter County">
                             </div>
                             <button type="submit" class="btn btn-primary">Submit</button>
@@ -80,21 +85,23 @@
 <div class="container-fluid text-center p-5 m-2 mx-auto">
     <div class="row p-1 m-2 mx-auto">
         <div class="col text-center">
-            <h1> List Users </h1>
+            <h1> List Parks </h1>
             <div class="container align-content-md-center p-5m-2 border border-danger">
                 <table class="table">
                     <thead>
                     <tr>
                         <th>Id</th>
-                        <th>Username</th>
-                        <th>Email</th>
-                        <th>Password</th>
-                        <th>First Name</th>
-                        <th>Last Name</th>
+                        <th>Name</th>
+                        <th>Description</th>
+                        <th>Rating</th>
+                        <th>Length</th>
+                        <th>Address</th>
+                        <th>County</th>
+                        <th>Operator</th>
                     </tr>
                     </thead>
                     <tbody>
-                    <tr th:each="user : ${userList}">
+                    <tr th:each="park : ${}">
                         <td th:text="${user.id}"></td>
                         <td th:text="${user.username}"></td>
                         <td th:text="${user.email}"></td>
