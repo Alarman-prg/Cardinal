@@ -38,7 +38,7 @@ public class GroupHikeController {
     @PostMapping("/add-hike")
     public String addHike(@ModelAttribute GroupHikeEntity groupHike) {
         groupHikeService.createHike(groupHike);
-        return "redirect:/county"; // Redirect to the hiking list page
+        return "redirect:/county"; 
     }
 
     @GetMapping("/create-group-hike")
@@ -54,7 +54,7 @@ public class GroupHikeController {
 
     @GetMapping("/user-home")
     public String userHome() {
-        return "user/user-home"; // Assuming "user-home" is the name of your HTML template
+        return "user/user-home";
     }
 
 }
