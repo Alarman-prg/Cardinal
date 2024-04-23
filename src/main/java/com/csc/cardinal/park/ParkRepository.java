@@ -20,4 +20,6 @@ public interface ParkRepository extends JpaRepository<ParkEntity, Long> {
 
     public List<ParkEntity> findAllByCounty(String county);
 
+    public List<ParkEntity> findAllByOperator(String operator);
+
 }

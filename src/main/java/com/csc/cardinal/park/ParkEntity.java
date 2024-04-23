@@ -2,10 +2,10 @@ package com.csc.cardinal.park;
 
 import jakarta.persistence.*;
 import lombok.Getter;
-import lombok.Setter;
+
 
 @Getter
-@Setter
+
 @Entity
 @Table(name = "parks")
 public class ParkEntity {
@@ -35,7 +35,8 @@ public class ParkEntity {
     @Column
     private String county;
 
-
+    @Column
+    private String operator;
 
     public ParkEntity() {
 
@@ -44,9 +45,47 @@ public class ParkEntity {
         this.name = name;
         this.description = description;
         this.rating_Total = 0.0;
+        this.rating_Count = 0;
         this.length = length;
         this.address = address;
         this.county = county;
+    }
+
+    public void setName(String name) {
+        this.name = name;
+    }
+
+    public void setDescription(String description) {
+        this.description = description;
+    }
+
+    public void setRating_Total(double rating_Total) {
+        if (this.rating_Total == 0.0 || this.rating_Count == 0) {
+            this.rating_Total = rating_Total;
+        }else{
+            this.rating_Total = ((this.rating_Total * this.rating_Count) + rating_Total) / this.rating_Count + 1;
+        }
+        setRating_Count(this.rating_Count + 1);
+    }
+
+    public void setRating_Count(int rating_Count) {
+        this.rating_Count = rating_Count;
+    }
+
+    public void setLength(double length) {
+        this.length = length;
+    }
+
+    public void setAddress(String address) {
+        this.address = address;
+    }
+
+    public void setCounty(String county) {
+        this.county = county;
+    }
+
+    public void setOperator(String operator) {
+        this.operator = operator;
     }
 }
 

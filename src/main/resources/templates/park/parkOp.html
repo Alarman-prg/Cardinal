@@ -1,0 +1,118 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Park Operator Home Page</title>
+    <link href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css" rel="stylesheet">
+</head>
+<body>
+<div class="container-fluid text-center p-5 m-2 mx-auto">
+    <div class="row p-1 m-2 mx-auto">
+        <div class="col text-center">
+            <h1>Add a new park below : </h1>
+            <div class="container">
+                <div class="row justify-content-center align-items-center">
+                    <div class="col-md-6">
+                        <form action="/parks" method="post">
+                            <div class="mb-3">
+                                <label for="name" class="form-label">name</label>
+                                <input type="text" class="form-control" id="name" name="name"
+                                       placeholder="Enter Park Name" required>
+                            </div>
+                            <div class="mb-3">
+                                <label for="description" class="form-label">Description</label>
+                                <input type="text" class="form-control" id="description" name="description"
+                                       placeholder="Park Description">
+                            </div>
+                            <div class="mb-3">
+                                <label for="length" class="form-label">Length</label>
+                                <input type="text" class="form-control" id="length" name="length"
+                                       placeholder="Trail Length">
+                            </div>
+                            <div class="mb-3">
+                                <label for="address" class="form-label">Address</label>
+                                <input type="text" class="form-control" id="address" name="address"
+                                       placeholder="Address">
+                            </div>
+                            <div class="mb-3">
+                                <label for="county" class="form-label">County</label>
+                                <input type="text" class="form-control" id="county" name="county"
+                                       placeholder="Enter County">
+                            </div>
+                            <button type="submit" class="btn btn-primary">Submit</button>
+                        </form>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class="col">
+            <h1>Delete a user : </h1>
+            <div class="container">
+                <div class="row justify-content-center align-items-center">
+                    <div class="col-md-6">
+                        <form action="/user-delete-username" method="post">
+                            <div class="my-5 mb-3">
+                                <label for="delete-username" class="form-label">By Username</label>
+                                <input type="text" class="form-control" id="delete-username" name="username"
+                                       placeholder="Enter username">
+                            </div>
+                            <button type="submit" class="btn btn-primary">Submit</button>
+                        </form>
+
+                        <div class="m-5"></div>
+
+                        <form action="/user-delete-id" method="post">
+                            <div class="mb-3">
+                                <label for="delete-id" class="form-label">By Id</label>
+                                <input type="text" class="form-control" id="delete-id" name="id"
+                                       placeholder="Enter username">
+                            </div>
+                            <button type="submit" class="btn btn-primary">Submit</button>
+                        </form>
+                    </div>
+                </div>
+            </div>
+
+        </div>
+    </div>
+</div>
+
+<div class="container-fluid text-center p-5 m-2 mx-auto">
+    <div class="row p-1 m-2 mx-auto">
+        <div class="col text-center">
+            <h1> List Users </h1>
+            <div class="container align-content-md-center p-5m-2 border border-danger">
+                <table class="table">
+                    <thead>
+                    <tr>
+                        <th>Id</th>
+                        <th>Username</th>
+                        <th>Email</th>
+                        <th>Password</th>
+                        <th>First Name</th>
+                        <th>Last Name</th>
+                    </tr>
+                    </thead>
+                    <tbody>
+                    <tr th:each="user : ${userList}">
+                        <td th:text="${user.id}"></td>
+                        <td th:text="${user.username}"></td>
+                        <td th:text="${user.email}"></td>
+                        <td th:text="${user.password}"></td>
+                        <td th:text="${user.firstName}"></td>
+                        <td th:text="${user.lastName}"></td>
+                        <td><a th:href="@{/admin/edit/{id}(id=${user.id})}">
+                            <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor"
+                                 class="bi bi-pencil-fill" viewBox="0 0 16 16">
+                                <path d="M12.854.146a.5.5 0 0 0-.707 0L10.5 1.793 14.207 5.5l1.647-1.646a.5.5 0 0 0 0-.708zm.646 6.061L9.793 2.5 3.293 9H3.5a.5.5 0 0 1 .5.5v.5h.5a.5.5 0 0 1 .5.5v.5h.5a.5.5 0 0 1 .5.5v.5h.5a.5.5 0 0 1 .5.5v.207zm-7.468 7.468A.5.5 0 0 1 6 13.5V13h-.5a.5.5 0 0 1-.5-.5V12h-.5a.5.5 0 0 1-.5-.5V11h-.5a.5.5 0 0 1-.5-.5V10h-.5a.5.5 0 0 1-.175-.032l-.179.178a.5.5 0 0 0-.11.168l-2 5a.5.5 0 0 0 .65.65l5-2a.5.5 0 0 0 .168-.11z"/>
+                            </svg>
+                        </a></td>
+                    </tr>
+                    </tbody>
+                </table>
+            </div>
+        </div>
+    </div>
+</div>
+</body>
+</html>
