@@ -13,17 +13,35 @@
     </style>
 </head>
 <body>
-<div class="container">
-    <h2>Group Hikes</h2>
-    <!-- Iterate over the list of group hikes and display them -->
-    <!--/*@thymesVar id="hikeList" type=""*/-->
-    <div th:each="groupHike : ${hikeList}" class="hike-box">
-        <p><span class="label">Hiker's Name:</span> <span th:text="${groupHike.usegit rsFullName}"></span></p>
-        <p><span class="label">Trail's Name:</span> <span th:text="${groupHike.trailName}">Hike Name</span></p>
-        <p><span class="label">County:</span> <span th:text="${groupHike.county}">Hike Name</span></p>
-
-
-
+<div class="container text-center p-5 m-2 mx-auto">
+    <div class="row p-1 m-2 mx-auto">
+        <div class="col text-center">
+            <h2>Group Hikes</h2>
+            <table>
+                <tr th:each="hike : ${hikeList}">
+                    <div class="hike-box">
+                        <p style="display: inline">Name:
+                            <td th:text="${hike.usersFullName}"/>
+                            |
+                        </p>
+                        <p style="display: inline">Trail Name:
+                            <td th:text="${hike.trailName}"/>
+                            |
+                        </p>
+                        <p style="display: inline"> County:
+                            <td th:text="${hike.county}"/>
+                            |
+                        </p>
+                        <p style="display: inline"> Start Hike Time:
+                            <td th:text="${hike.hikeTime}"/>
+                            |
+                        </p>
+                        <p style="display: inline">Number of hikers:
+                            <td th:text="${hike.description}"/>
+                        </p>
+                    </div>
+            </table>
+        </div>
     </div>
 </div>
 </body>
