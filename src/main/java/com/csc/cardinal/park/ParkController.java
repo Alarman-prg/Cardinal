@@ -36,7 +36,7 @@ public class ParkController {
         return parkService.fetch();
     }
 
-    @GetMapping("/getPark")
+    @GetMapping("/getPark/{id}")
     public ParkEntity findById(@RequestParam int id) {
         return parkService.findById(id);
     }
@@ -62,8 +62,6 @@ public class ParkController {
     ) {
         return parkService.update(parkEntity, id);
     }
-
-
 
     @DeleteMapping("/parkOp/{id}")
     public void delete(@PathVariable Long id) {
