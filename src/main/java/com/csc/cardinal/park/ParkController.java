@@ -19,7 +19,7 @@ public class ParkController {
     @Autowired
     private GroupHikeRepository groupHikeRepository;
 
-    @PostMapping("/parkOp")
+    @PostMapping("/addPark")
     public ParkEntity save(@RequestBody ParkEntity parkEntity) {
         return parkService.save(parkEntity);
     }
@@ -31,29 +31,37 @@ public class ParkController {
         return "park/county";
     }
 
-    @GetMapping("/parkOp/{county}")
+    @GetMapping("/getParks")
+    public List<ParkEntity> findAll(){
+        return parkService.fetch();
+    }
+
+    @GetMapping("/getPark/{id}")
+    public ParkEntity findById(@RequestParam int id) {
+        return parkService.findById(id);
+    }
+
+    @GetMapping("/getPark/{county}")
     public List<ParkEntity> findAllCounty(@PathVariable("county") String county, Model model) {
         List<ParkEntity> parkEntityList = parkService.findAllByCounty(county);
         model.addAttribute("parkEntityList", parkEntityList);
         return parkEntityList;
     }
 
-    @GetMapping("/parkOp/{operator}")
+    @GetMapping("/getPark/{operator}")
     public List<ParkEntity> findAllOperators(@PathVariable("operator") String operator, Model model) {
         List<ParkEntity> parkEntityList = parkService.findAllByCounty(operator);
         model.addAttribute("parkEntityList", parkEntityList);
         return parkEntityList;
     }
 
-    @PutMapping("/parkOp/{id}")
+    @PutMapping("/parkOp/edit/{id}")
     public ParkEntity update(
             @RequestBody ParkEntity parkEntity,
             @PathVariable Long id
     ) {
         return parkService.update(parkEntity, id);
     }
-
-
 
     @DeleteMapping("/parkOp/{id}")
     public void delete(@PathVariable Long id) {

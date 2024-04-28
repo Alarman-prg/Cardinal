@@ -1,18 +1,20 @@
 package com.csc.cardinal.park;
 
 import jakarta.persistence.*;
+import lombok.AccessLevel;
 import lombok.Getter;
+import lombok.Setter;
 
 
 @Getter
-
+@Setter
 @Entity
 @Table(name = "parks")
 public class ParkEntity {
 
     @Id
     @GeneratedValue(strategy = GenerationType.AUTO)
-    private int id;
+    private long id;
 
     @Column
     private String name;
@@ -21,6 +23,7 @@ public class ParkEntity {
     private String description;
 
     @Column
+    @Setter(AccessLevel.NONE)
     private double rating_Total;            //Should ratings include descriptions this will need to be moved to its own table
 
     @Column
@@ -51,15 +54,6 @@ public class ParkEntity {
         this.county = county;
         this.operator = operator;
     }
-
-    public void setName(String name) {
-        this.name = name;
-    }
-
-    public void setDescription(String description) {
-        this.description = description;
-    }
-
     public void setRating_Total(double rating_Total) {
         if (this.rating_Total == 0.0 || this.rating_Count == 0) {
             this.rating_Total = rating_Total;
@@ -69,24 +63,5 @@ public class ParkEntity {
         setRating_Count(this.rating_Count + 1);
     }
 
-    public void setRating_Count(int rating_Count) {
-        this.rating_Count = rating_Count;
-    }
-
-    public void setLength(double length) {
-        this.length = length;
-    }
-
-    public void setAddress(String address) {
-        this.address = address;
-    }
-
-    public void setCounty(String county) {
-        this.county = county;
-    }
-
-    public void setOperator(String operator) {
-        this.operator = operator;
-    }
 }
 

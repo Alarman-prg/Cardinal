@@ -22,7 +22,8 @@ public class ParkService {
      * @return ParkEntity
      */
     public ParkEntity save(ParkEntity park) {
-        return parkRepository.save(park);
+        ParkEntity save = parkRepository.save(park);
+        return save;
     }
 
     /**
