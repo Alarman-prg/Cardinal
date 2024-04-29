@@ -10,7 +10,7 @@ import java.util.Objects;
 public class UserService {
 
     @Autowired
-    UserRepository userRepository;
+    static UserRepository userRepository;
 
     /**
      * Add a record to the users table
@@ -70,8 +70,11 @@ public class UserService {
     }
 
 
-    public UserEntity findByUsername(String username) {
+    public static UserEntity findByUsername(String username) {
         return userRepository.findByUsername(username);
     }
 
+    public UserEntity getUsername() {
+        return new UserEntity.getUsername();
+    }
 }
