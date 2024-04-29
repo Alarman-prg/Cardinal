@@ -20,9 +20,13 @@ public class ParkController {
     private GroupHikeRepository groupHikeRepository;
 
     @PostMapping("/addPark")
-    public ParkEntity save(@RequestBody ParkEntity parkEntity) {
-        return parkService.save(parkEntity);
+    public String save(@RequestBody ParkEntity parkEntity) {
+        parkService.save(parkEntity);
+        return "redirect:/parkOp";
     }
+    //Redirect to
+    @GetMapping("/addPark")
+    public String redirectAddPark(){return "redirect:/create-park";}
 
     @GetMapping("/county")
     public String displayCounty(Model model) {
@@ -36,7 +40,7 @@ public class ParkController {
         return parkService.fetch();
     }
 
-    @GetMapping("/getPark/{id}")
+    @GetMapping("/getPark")
     public ParkEntity findById(@RequestParam int id) {
         return parkService.findById(id);
     }
@@ -75,10 +79,7 @@ public class ParkController {
         return parkService.save(parkEntity);
     }
 
-    @GetMapping("/parks")
-    public List<ParkEntity> fetch() {
-        return parkService.fetch();
-    }
+
 
     @PutMapping("/parks/{id}")
     public ParkEntity update(

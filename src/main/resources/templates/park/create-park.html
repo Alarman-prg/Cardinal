@@ -1,0 +1,62 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Create a group hike</title>
+    <link href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css" rel="stylesheet">
+</head>
+<body>
+<div class="col text-center">
+    <h1>Create New Trail: </h1>
+    <div class="container">
+        <div class="row justify-content-center align-items-center">
+            <div class="col-md-6">
+                <form action="add-park" method="post">
+                    <div class="mb-3">
+                        <label for="name" class="form-label">Trail Name</label>
+                        <input type="text" class="form-control" id="name" name="name"
+                               placeholder="Enter Trail Name" required>
+                    </div>
+                    <div class="mb-3">
+                        <label for="description" class="form-label">Description</label>
+                        <input type="text" class="form-control" id="description" name="description"
+                               placeholder="Enter a short Description of the Trail">
+                    </div>
+                    <div class="mb-3">
+                        <label for="length" class="form-label">Length</label>
+                        <input type="number" class="form-control" id="length" name="length"
+                               placeholder="Enter Length of Trail">
+                    </div>
+                    <div class="mb-3">
+                        <label for="address" class="form-label">Address</label>
+                        <input type="text" class="form-control" id="address" name="address"
+                               placeholder="Address of the Trail">
+                    </div>
+                    <div class="mb-3">
+                        <label for="county" class="form-label">County</label>
+                        <select id="county" name="county">
+                            <option value="Alamance">Alamance</option>
+                            <option value="Davidson">Davidson</option>
+                            <option value="Davie">Davie</option>
+                            <option value="Forsyth">Forsyth</option>
+                            <option value="Guilford">Guilford</option>
+                            <option value="Randolph">Randolph</option>
+                            <option value="Rockingham">Rockingham</option>
+                            <option value="Stokes">Stokes</option>
+                            <option value="Surry">Surry</option>
+                            <option value="Yadkin">Yadkin</option>
+                        </select>
+                    </div>
+                    <div class="mb-3">
+                        <label for="operator" class="form-label">Park Operator</label>
+                            <input type="text" class="form-control" id="operator" name="operator"
+                               placeholder="Park Operator Name for new Trail">
+                    </div>
+                    <button type="submit" class="btn btn-primary">Submit</button>
+                </form>
+            </div>
+        </div>
+    </div>
+</body>
+</html>

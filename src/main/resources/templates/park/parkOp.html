@@ -5,15 +5,6 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Park Op Home</title>
     <style>
-        /* hike list styles*/
-        .form_style_hikes {
-            width: 600px;
-            padding: 20px;
-            border: 1px solid #ccc;
-            border-radius: 5px;
-            background-color: #fff;
-            float: right;
-        }
 
         .hike-box {
             border: 1px solid #ccc;
@@ -36,9 +27,9 @@
 
         /* park list styles*/
         .parks-container {
-            width: 300px;
-            margin: 50px 20px;
+            margin-left: 50%;
             float: left;
+
         }
 
         .parks-container ul {
@@ -86,8 +77,43 @@
     </ul>
 </div>
 
-<div>
-
+<div class="parks-container">
+<h1>My Parks</h1>
+<table>
+    <tbody>
+    <tr th:each="park : ${parkEntityList}">
+        <td>
+            <div class="hike-box">
+                <div class="hike-info">
+                    <span>Name:</span>
+                    <span th:text="${park.name}"/>
+                </div>
+                <div class="hike-info">
+                    <span>Length:</span>
+                    <span th:text="${park.length}"/>
+                </div>
+                <div class="hike-info">
+                    <span>Description:</span>
+                    <span th:text="${park.description}"/>
+                </div>
+                <div class="hike-info">
+                    <span>Address</span>
+                    <span th:text="${park.address}"/>
+                </div>
+                <div class="hike-info">
+                    <span>County</span>
+                    <span th:text="${park.county}"/>
+                </div>
+                <div class="hike-info">
+                    <span>Rating</span>
+                    <span th:text="${park.rating_total}"/>
+                </div>
+            </div>
+        </td>
+    </tr>
+    </tbody>
+</table>
+    <a th:href="@{/addPark}" class="btn btn-primary">Add New Trail</a>
 </div>
 
 </body>
