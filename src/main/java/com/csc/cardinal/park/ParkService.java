@@ -101,7 +101,7 @@ public class ParkService {
         parkRepository.deleteById(id);
     }
 
-    public ParkEntity findById(Long id){
+    public ParkEntity findById(long id){
         return parkRepository.findById(id);
     }
 
