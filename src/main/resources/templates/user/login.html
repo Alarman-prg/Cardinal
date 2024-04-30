@@ -5,9 +5,19 @@
     <title>Login</title>
     <!-- Bootstrap CSS -->
     <link href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css" rel="stylesheet">
+    <style>
+        body {
+            height: 100vh;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            background-color: #4F6F52;
+        }
+    </style>
 </head>
+
 <body>
-<div class="container mt-5">
+<div class="container centered-form mt-5">
     <h2>Login</h2>
     <form action="/login" method="post">
         <div class="form-group">
@@ -19,6 +29,7 @@
             <input type="password" class="form-control" id="password" name="password" required>
         </div>
         <button type="submit" class="btn btn-primary">Login</button>
+        <a href="/" class="btn btn-secondary">Go to Another Page</a>
     </form>
     <!-- Display error message if login fails -->
     <div th:if="${param.error}" class="alert alert-danger mt-3" role="alert">
