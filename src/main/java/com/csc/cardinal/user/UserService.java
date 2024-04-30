@@ -81,4 +81,8 @@ public class UserService {
     public UserEntity getUsername() {
         return new UserEntity.getUsername();
     }
+
+    public UserEntity findById(Long id) {
+        return userRepository.findById(id).get();
+    }
 }
