@@ -10,8 +10,12 @@ import java.util.Optional;
 @Service
 public class GroupHikeService {
 
+    private static GroupHikeRepository groupHikeRepository;
+
     @Autowired
-    GroupHikeRepository groupHikeRepository;
+    public void setGroupHikeRepository(GroupHikeRepository groupHikeRepository) {
+        GroupHikeService.groupHikeRepository = groupHikeRepository;
+    }
 
     /**
      * Add a record to the groupHike table

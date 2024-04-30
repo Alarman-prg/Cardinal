@@ -9,8 +9,12 @@ import java.util.Objects;
 @Service
 public class UserService {
 
+    private static UserRepository userRepository;
+
     @Autowired
-    static UserRepository userRepository;
+    public UserService(UserRepository userRepository) {
+        this.userRepository = userRepository;
+    }
 
     /**
      * Add a record to the users table

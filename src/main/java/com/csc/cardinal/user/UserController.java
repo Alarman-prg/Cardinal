@@ -30,7 +30,7 @@ public class UserController {
 
     @PostMapping("/login")
     public String processLogin(@ModelAttribute("username") String usernameHtml, HttpSession httpSession) {
-        UserEntity userEntity = userService.findByUsername(usernameHtml);
+        UserEntity userEntity = UserService.findByUsername(usernameHtml);
         long userId = userEntity.getId();
         String username = userEntity.getUsername();
         String email = userEntity.getEmail();

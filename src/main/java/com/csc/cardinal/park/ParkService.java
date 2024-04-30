@@ -12,8 +12,13 @@ import java.util.Objects;
 @Service
 public class ParkService {
 
+
+    private static ParkRepository parkRepository;
+
     @Autowired
-    ParkRepository parkRepository;
+    public void setParkRepository(ParkRepository parkRepository) {
+        ParkService.parkRepository = parkRepository;
+    }
 
     /**
      * Add a record to the parks table
