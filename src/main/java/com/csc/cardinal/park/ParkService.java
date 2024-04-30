@@ -100,7 +100,8 @@ public class ParkService {
     public void delete(Long id) {
         parkRepository.deleteById(id);
     }
-    public ParkEntity findById(long id){
+
+    public ParkEntity findById(Long id){
         return parkRepository.findById(id);
     }
 

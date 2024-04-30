@@ -73,7 +73,7 @@ public class ParkController {
         return "park/park-edit";
     }
 
-    @DeleteMapping("/parkOp/{id}")
+    @DeleteMapping("/park/delete/{id}")
     public void delete(@PathVariable Long id) {
         parkService.delete(id);
     }
