@@ -1,7 +1,6 @@
 package com.csc.cardinal.user;
 
 
-
 import jakarta.servlet.http.HttpSession;
 import org.apache.catalina.User;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -10,6 +9,7 @@ import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.*;
 
 import java.util.List;
+import java.util.Objects;
 
 
 /***
@@ -19,8 +19,26 @@ import java.util.List;
 @Controller
 public class UserController {
 
+    private static UserService userService;
+
     @Autowired
-    private UserService userService;
+    public void setUserService(UserService userService) {
+        UserController.userService = userService;
+    }
+
+    @GetMapping("/register")
+    public String registerForm(Model model) {
+        UserEntity userEntity = new UserEntity();
+        model.addAttribute("userEntity", userEntity);
+        return "user/register";
+    }
+
+    @PostMapping("/register")
+    public String register(@ModelAttribute("userEntity") UserEntity userEntity, Model model) {
+        model.getAttribute("userEntity");
+        userService.save(userEntity);
+        return "redirect:/login";
+    }
 
     @GetMapping("/login")
     public String login() {
@@ -43,19 +61,19 @@ public class UserController {
             return "user/login";
         } else {
 
-        long userId = userEntity.getId();
-        String username = userEntity.getUsername();
-        String email = userEntity.getEmail();
-        String firstName = userEntity.getFirstName();
-        String lastName = userEntity.getLastName();
+            long userId = userEntity.getId();
+            String username = userEntity.getUsername();
+            String email = userEntity.getEmail();
+            String firstName = userEntity.getFirstName();
+            String lastName = userEntity.getLastName();
 
-        httpSession.setAttribute("userId", userId);
-        httpSession.setAttribute("username", username);
-        httpSession.setAttribute("email", email);
-        httpSession.setAttribute("firstName", firstName);
-        httpSession.setAttribute("lastName", lastName);
+            httpSession.setAttribute("userId", userId);
+            httpSession.setAttribute("username", username);
+            httpSession.setAttribute("email", email);
+            httpSession.setAttribute("firstName", firstName);
+            httpSession.setAttribute("lastName", lastName);
 
-        return "redirect:dashboard";
+            return "redirect:dashboard";
         }
     }
 
@@ -89,12 +107,14 @@ public class UserController {
     public UserEntity update(
             @RequestBody UserEntity userEntity,
             @PathVariable Long id
-    ){
+    ) {
         return userService.update(userEntity, id);
-    };
+    }
+
+    ;
 
     @DeleteMapping("/users/{id}")
-    public void delete(@PathVariable Long id){
+    public void delete(@PathVariable Long id) {
         userService.delete(id);
     }
 

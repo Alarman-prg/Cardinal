@@ -14,7 +14,7 @@
             <div class="container">
                 <div class="row justify-content-center align-items-center">
                     <div class="col-md-6">
-                        <form action="/add-user" method="post">
+                        <form action="/register" method="post">
                             <div class="mb-3">
                                 <label for="email" class="form-label">Email address</label>
                                 <input type="email" class="form-control" id="email" name="email"
@@ -41,12 +41,16 @@
                                        placeholder="Enter Last Name">
                             </div>
                             <button type="submit" class="btn btn-primary">Submit</button>
+                            <div th:if="${param.error}" class="alert alert-danger mt-3" role="alert">
+                                Invalid username or password. Please try again.
+                            </div>
                         </form>
                     </div>
                 </div>
             </div>
         </div>
-
+    </div>
+</div>
 
 </body>
 </html>

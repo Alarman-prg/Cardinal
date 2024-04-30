@@ -1,5 +1,7 @@
 package com.csc.cardinal.admin;
 
+import com.csc.cardinal.park.ParkRepository;
+import com.csc.cardinal.park.ParkService;
 import com.csc.cardinal.user.UserEntity;
 import com.csc.cardinal.user.UserRepository;
 import com.csc.cardinal.user.UserService;
@@ -27,6 +29,10 @@ public class AdminController {
 
     @Autowired
     private UserService userService;
+    @Autowired
+    private ParkService parkService;
+    @Autowired
+    private ParkRepository parkRepository;
 
     @GetMapping("/admin")
     public String getHome(Model model) {
@@ -86,6 +92,18 @@ public class AdminController {
     public String deleteByUsername(@RequestParam("username") String username) {
         adminService.deleteByUsername(username);
         return "redirect:/admin";
+    }
+
+    @PostMapping("/deleteAllParks")
+    public String deleteAllParks() {
+        parkRepository.deleteAll();
+        return "redirect:/admin-reports";
+    }
+
+    @PostMapping("/deleteAllUsers")
+    public String deleteAllUsers() {
+        userRepository.deleteAll();
+        return "redirect:/admin-reports";
     }
 
 }
