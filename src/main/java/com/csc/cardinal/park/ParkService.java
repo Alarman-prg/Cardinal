@@ -12,8 +12,13 @@ import java.util.Objects;
 @Service
 public class ParkService {
 
+
+    private static ParkRepository parkRepository;
+
     @Autowired
-    ParkRepository parkRepository;
+    public void setParkRepository(ParkRepository parkRepository) {
+        ParkService.parkRepository = parkRepository;
+    }
 
     /**
      * Add a record to the parks table
@@ -83,9 +88,6 @@ public class ParkService {
         }
         if (Objects.nonNull(park.getRating_Count())) {
             parkDB.setRating_Count(park.getRating_Count());
-        }
-        if (Objects.nonNull(park.getLength())) {
-            parkDB.setLength(park.getLength());
         }
         return parkRepository.save(parkDB);
     }

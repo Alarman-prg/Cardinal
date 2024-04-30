@@ -15,7 +15,10 @@ public class UserService {
     public UserService(UserRepository userRepository) {
         this.userRepository = userRepository;
     }
+<<<<<<< HEAD
 
+=======
+>>>>>>> bba7943f41d4d691382c238917134373435bed41
 
     /**
      * Add a record to the users table

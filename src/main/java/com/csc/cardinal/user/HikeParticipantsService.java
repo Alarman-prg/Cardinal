@@ -6,13 +6,17 @@ import org.springframework.stereotype.Service;
 @Service
 public class HikeParticipantsService {
 
+    private static HikeParticipantsRepository hikeParticipantsRepository;
+
     @Autowired
-    private HikeParticipantsRepository HikeParticipantsRepository;
+    public HikeParticipantsService(HikeParticipantsRepository hikeParticipantsRepository) {
+        this.hikeParticipantsRepository = hikeParticipantsRepository;
+    }
 
     public HikeParticipantsEntity joinHike(GroupHikeEntity hike, UserEntity user) {
         HikeParticipantsEntity participant = new HikeParticipantsEntity();
         participant.setHike(hike);
         participant.setUser(user);
-        return HikeParticipantsRepository.save(participant);
+        return hikeParticipantsRepository.save(participant);
     }
 }

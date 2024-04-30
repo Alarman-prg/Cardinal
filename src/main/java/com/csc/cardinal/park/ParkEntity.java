@@ -30,9 +30,6 @@ public class ParkEntity {
     private int rating_Count;               //This as well for above comment
 
     @Column
-    private double length;
-
-    @Column
     private String address;
 
     @Column
@@ -44,12 +41,11 @@ public class ParkEntity {
     public ParkEntity() {
 
     }
-    public ParkEntity(String name, String description, double length, String address, String county, String operator) {
+    public ParkEntity(String name, String description, String address, String county, String operator) {
         this.name = name;
         this.description = description;
         this.rating_Total = 0.0;
         this.rating_Count = 0;
-        this.length = 2.0;
         this.address = address;
         this.county = county;
         this.operator = operator;
