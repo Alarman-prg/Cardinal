@@ -55,10 +55,13 @@
             color: #333;
         }
 
+        .h3 {
+            margin: auto;
+        }
+
         /* park list styles*/
         .parks-container {
-            margin-left: 50%;
-            float: left;
+            margin: auto;
 
         }
     </style>
@@ -72,15 +75,7 @@
         <li><a href="/logout">Log out</a></li>
     </ul>
 </div>
-
-    <h1>User Home</h1>
-    <p>Welcome user here is your info</p>
-    <span th:text="${session.userId}"></span><br>
-    <span th:text="${session.username}"></span><br>
-    <span th:text="${session.email}"></span><br>
-    <span th:text="${session.firstName}"></span><br>
-    <span th:text="${session.lastName}"></span><br>
-
+<h3>List of Parks</h3>
 <div class="parks-container">
     <table>
         <tbody>
