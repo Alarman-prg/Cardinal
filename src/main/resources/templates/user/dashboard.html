@@ -1,0 +1,21 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Admin Dashboard</title>
+    <link href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css" rel="stylesheet">
+</head>
+<body>
+    <a href="/logout">Log out here</a>
+    <h1>User Home</h1>
+    <p>Welcome user here is your info</p>
+    <span th:text="${session.userId}"></span><br>
+    <span th:text="${session.username}"></span><br>
+    <span th:text="${session.email}"></span><br>
+    <span th:text="${session.firstName}"></span><br>
+    <span th:text="${session.lastName}"></span><br>
+
+    <a href="/add-hike">Add Hike</a>
+</body>
+</html>

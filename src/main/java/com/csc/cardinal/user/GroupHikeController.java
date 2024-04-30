@@ -2,12 +2,10 @@ package com.csc.cardinal.user;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
-import org.springframework.stereotype.Service;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.*;
 
 import java.util.List;
-import java.util.Optional;
 
 @Controller
 public class GroupHikeController {
@@ -54,7 +52,7 @@ public class GroupHikeController {
 
     @GetMapping("/user-home")
     public String userHome() {
-        return "user/user-home"; // Assuming "user-home" is the name of your HTML template
+        return "dashboard"; // Assuming "user-home" is the name of your HTML template
     }
 
 }
