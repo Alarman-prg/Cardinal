@@ -33,6 +33,12 @@ public class AdminController {
         return "admin/admin-home";
     }
 
+    @GetMapping("/admin-reports")
+    public String getReports(Model model) {
+        return "admin/admin-reports";
+    }
+
+
     @GetMapping("admin/edit/{id}")
     public String showUpdateForm(@PathVariable("id") Long id, Model model) {
         UserEntity user = userRepository.findById(id)
@@ -61,7 +67,13 @@ public class AdminController {
     }
 
     @PostMapping("/user-delete-id")
-    public String deleteById(@RequestParam("id") Long id) {
+    public String postDeleteById(@RequestParam("id") Long id) {
+        adminService.deleteUser(id);
+        return "redirect:/admin";
+    }
+
+    @GetMapping("/user-delete-id")
+    public String getDeleteById(@RequestParam("id") Long id) {
         adminService.deleteUser(id);
         return "redirect:/admin";
     }

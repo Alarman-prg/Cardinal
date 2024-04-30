@@ -9,11 +9,17 @@ import org.springframework.stereotype.Service;
 @Service
 public class AdminService {
 
-    @Autowired
     private UserRepository userRepository;
-
     @Autowired
+    public AdminService(UserRepository userRepository) {
+        this.userRepository = userRepository;
+    }
+
     private UserService userService;
+    @Autowired
+    public void setUserService(UserService userService) {
+        this.userService = userService;
+    }
 
     public AdminService() {
     }
