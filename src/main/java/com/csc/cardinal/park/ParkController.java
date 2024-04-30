@@ -33,13 +33,13 @@ public class ParkController {
         model.addAttribute("park", new ParkEntity());
         return "park/create-park";
     }
-    /*
-    @GetMapping("/county")
+
+    @GetMapping("/group-hike")
     public String displayCounty(Model model) {
         List<GroupHikeEntity> hikeList = groupHikeRepository.findAll();
         model.addAttribute("hikeList", hikeList);
-        return "park/county";
-    }*/
+        return "park/group-hike";
+    }
 
     @GetMapping("/getParks")
     public List<ParkEntity> findAll(){
