@@ -10,6 +10,7 @@ import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.*;
 
 import java.util.List;
+import java.util.Optional;
 
 /***
  * @Author Andrew & Jacob
@@ -51,36 +52,44 @@ public class ParkController {
         return "park/group-hike";
     }
 
-    @GetMapping("/getParks")
+    /*@GetMapping("/getParks")
     public List<ParkEntity> findAll(){
         return parkService.fetch();
-    }
+    }*/
 
     @GetMapping("/getPark")
     public ParkEntity findById(@RequestParam int id) {
         return parkService.findById(id);
     }
 
-    @GetMapping("/getPark/{county}")
+    /*@GetMapping("/getPark/{county}")
     public List<ParkEntity> findAllCounty(@PathVariable("county") String county, Model model) {
         List<ParkEntity> parkEntityList = parkService.findAllByCounty(county);
         model.addAttribute("parkEntityList", parkEntityList);
         return parkEntityList;
-    }
+    }*/
 
-    @GetMapping("/parkOp/{operator}")
+    /*@GetMapping("/parkOp/{operator}")
     public List<ParkEntity> findAllOperators(@PathVariable("operator") String operator, Model model) {
         List<ParkEntity> parkEntityList = parkService.findAllByCounty(operator);
         model.addAttribute("parkEntityList", parkEntityList);
         return parkEntityList;
+    }*/
+
+    @GetMapping("park/edit/{id}")
+    public String showUpdateForm(@PathVariable("id") Long id, Model model) {
+        ParkEntity park = parkRepository.findById(id)
+                .orElseThrow(() -> new IllegalArgumentException("Invalid user ID: " + id));
+        model.addAttribute("park", park);
+        return "park/park-edit"; // Return the name of your update form template
     }
 
-    @PutMapping("/parkOp/edit/{id}")
-    public ParkEntity update(
-            @RequestBody ParkEntity parkEntity,
-            @PathVariable Long id
-    ) {
-        return parkService.update(parkEntity, id);
+    @PostMapping("park/update/{id}")
+    public String updatePark(@PathVariable("id") Long id, @ModelAttribute("park") ParkEntity updatedPark) {
+      //  Optional<UserEntity> user = userRepository.findById(id);
+        parkService.update(updatedPark, id);
+
+        return "redirect:/parkOp";
     }
 
     @DeleteMapping("/parkOp/{id}")

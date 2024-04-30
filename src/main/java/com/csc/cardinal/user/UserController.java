@@ -1,6 +1,9 @@
 package com.csc.cardinal.user;
 
 
+import com.csc.cardinal.park.ParkEntity;
+import com.csc.cardinal.park.ParkRepository;
+import com.csc.cardinal.park.ParkService;
 import jakarta.servlet.http.HttpSession;
 import org.apache.catalina.User;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -25,6 +28,12 @@ public class UserController {
     public void setUserService(UserService userService) {
         UserController.userService = userService;
     }
+
+    @Autowired
+    private ParkService parkService;
+
+    @Autowired
+    private ParkRepository parkRepository;
 
     @GetMapping("/register")
     public String registerForm(Model model) {
@@ -90,6 +99,9 @@ public class UserController {
         model.addAttribute("email", email);
         model.addAttribute("firstName", firstName);
         model.addAttribute("lastName", lastName);
+
+        List<ParkEntity> parkList = parkRepository.findAll();
+        model.addAttribute("parkList", parkList);
         return "/user/dashboard";
     }
 
