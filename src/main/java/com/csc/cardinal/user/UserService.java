@@ -6,6 +6,10 @@ import org.springframework.stereotype.Service;
 import java.util.List;
 import java.util.Objects;
 
+/***
+ * @Author Jacob
+ * @Author Christian
+ */
 @Service
 public class UserService {
 

@@ -2,12 +2,52 @@
 <html xmlns:th="http://www.thymeleaf.org">
 <head>
     <meta charset="UTF-8">
+    <meta name="author" content="Jacob Greene">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Admin Dashboard</title>
+    <title>User Dashboard</title>
     <link href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css" rel="stylesheet">
+    <style>
+        body {
+            background-color: #4F6F52;
+        }
+    </style>
 </head>
-<body>
-    <a href="/logout">Log out here</a>
+<style>
+    .navbar {
+        background-color: #4F6F4C;
+        overflow: hidden;
+    }
+
+    .navbar ul {
+        list-style-type: none;
+        padding: 0;
+        margin: 0;
+        display: flex;
+    }
+
+
+    .navbar a {
+        color: white;
+        text-decoration: none;
+        padding: 15px;
+        display: block;
+        display: inline-block;
+        text-align: center;
+        box-sizing: border-box
+    }
+
+    .navbar a:hover {
+        background-color: #EE6963;
+    }
+</style>
+<div class="navbar">
+    <ul>
+        <li><a href="dashboard">Cardinal</a></li>
+        <li><a href="group-hike">Group Hikes</a></li>
+        <li><a href="g/logout">Log out</a></li>
+    </ul>
+</div>
+
     <h1>User Home</h1>
     <p>Welcome user here is your info</p>
     <span th:text="${session.userId}"></span><br>
@@ -16,6 +56,6 @@
     <span th:text="${session.firstName}"></span><br>
     <span th:text="${session.lastName}"></span><br>
 
-    <a href="/add-hike">Add Hike</a>
+    <a href="/grou">Add Hike</a>
 </body>
 </html>

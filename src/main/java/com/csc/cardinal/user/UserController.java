@@ -1,5 +1,7 @@
 package com.csc.cardinal.user;
 
+
+
 import jakarta.servlet.http.HttpSession;
 import org.apache.catalina.User;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -9,9 +11,12 @@ import org.springframework.web.bind.annotation.*;
 
 import java.util.List;
 
+
+/***
+ * @Author Jacob
+ */
 @SessionAttributes("userEntity")
 @Controller
-
 public class UserController {
 
     @Autowired
@@ -29,21 +34,29 @@ public class UserController {
     }
 
     @PostMapping("/login")
-    public String processLogin(@ModelAttribute("username") String usernameHtml, HttpSession httpSession) {
+    public String processLogin(@ModelAttribute("username") String usernameHtml, HttpSession httpSession, Model model) {
+
         UserEntity userEntity = UserService.findByUsername(usernameHtml);
+
+        if (userEntity == null) {
+            model.addAttribute("error", "Invalid username or password.");
+            return "user/login";
+        } else {
+
         long userId = userEntity.getId();
         String username = userEntity.getUsername();
         String email = userEntity.getEmail();
         String firstName = userEntity.getFirstName();
         String lastName = userEntity.getLastName();
 
-        httpSession.setAttribute("userId", userId); // Store user ID in session
+        httpSession.setAttribute("userId", userId);
         httpSession.setAttribute("username", username);
         httpSession.setAttribute("email", email);
         httpSession.setAttribute("firstName", firstName);
         httpSession.setAttribute("lastName", lastName);
 
         return "redirect:dashboard";
+        }
     }
 
     @GetMapping("/dashboard")
@@ -84,8 +97,5 @@ public class UserController {
     public void delete(@PathVariable Long id){
         userService.delete(id);
     }
-
-
-
 
 }

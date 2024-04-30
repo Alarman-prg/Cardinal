@@ -1,0 +1,17 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Join Hike</title>
+</head>
+<body>
+<h2>Confirm Joining Hike</h2>
+<p>Are you sure you want to join this hike?</p>
+<form th:action="@{/hikes/{hikeId}/join}" th:object="${joinForm}" method="post">
+    <input type="hidden" th:name="hikeId" th:value="${hikeId}" />
+    <button type="submit">Join Hike</button>
+</form>
+
+</body>
+</html>

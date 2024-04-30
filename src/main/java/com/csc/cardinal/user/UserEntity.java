@@ -5,6 +5,10 @@ import jakarta.persistence.*;
 import lombok.Getter;
 import lombok.Setter;
 
+/***
+ * @Author Jacob
+ * @Author Christian
+ */
 @Getter
 @Setter
 @Entity(name = "userEntity")

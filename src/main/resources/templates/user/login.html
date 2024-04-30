@@ -2,6 +2,7 @@
 <html xmlns:th="http://www.thymeleaf.org">
 <head>
     <meta charset="UTF-8">
+    <meta name="author" content="Jacob Greene">
     <title>Login</title>
     <!-- Bootstrap CSS -->
     <link href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css" rel="stylesheet">
@@ -19,6 +20,10 @@
 <body>
 <div class="container centered-form mt-5">
     <h2>Login</h2>
+    <div th:if="${error}">
+        <p th:text="${error}" style="color: red;"></p>
+    </div>
+
     <form action="/login" method="post">
         <div class="form-group">
             <label for="username">Username</label>
@@ -29,7 +34,7 @@
             <input type="password" class="form-control" id="password" name="password" required>
         </div>
         <button type="submit" class="btn btn-primary">Login</button>
-        <a href="/" class="btn btn-secondary">Go to Another Page</a>
+        <a href="/" class="btn btn-secondary">Go to landing page</a>
     </form>
     <!-- Display error message if login fails -->
     <div th:if="${param.error}" class="alert alert-danger mt-3" role="alert">
