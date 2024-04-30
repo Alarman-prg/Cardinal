@@ -116,7 +116,7 @@
                         <span th:text="${hike.description}"/>
                     </div>
                     <!-- Add Join Hike button -->
-                    <form th:action="@{/hikes/{id}/join(hikeId=${hike.id})}" method="post">
+                    <form action="/hikes/{id}/join" method="post">
                         <button type="submit">Join Hike</button>
                     </form>
                 </div>
