@@ -30,11 +30,6 @@ public class GroupHikeController {
         this.userService = userService;
     }
 
-//    @PostMapping("/grouphikes")
-//    public GroupHikeEntity save(@RequestBody GroupHikeEntity groupHikeEntity) {
-//        return groupHikeService.save(groupHikeEntity);
-//    }
-
     @GetMapping("/hikes")
     public String hikeHome(Model model) {
         List<GroupHikeEntity> hikeList = groupHikeRepository.findAll();
@@ -66,15 +61,21 @@ public class GroupHikeController {
 
     @GetMapping("/user-home")
     public String userHome() {
-        return "user/dashboard"; // Assuming "user-home" is the name of your HTML template
+        return "user/dashboard";
     }
 
-    @PostMapping("/hikes/{id}/join")
-    public String joinHike(@PathVariable("id") long hikeId, HttpSession httpSession) {
+    @GetMapping("/hikes/{groupId}/confirm")
+    public String confirmJoinHike(@PathVariable("groupId") Long hikeId, Model model) {
+        // Pass the hikeId to the view
+        model.addAttribute("groupId", hikeId);
+        return "/park/confirm-join-hike";
+    }
+
+    @PostMapping("/hikes/{groupId}/join")
+    public String joinHike(@PathVariable("groupId") Long hikeId, HttpSession httpSession) {
         UserEntity user = (UserEntity) httpSession.getAttribute("user");
         groupHikeService.joinHike(hikeId, user);
-        // Redirect back to the hike details page
-        return "redirect:/hikes/{id}";
+        return "redirect:/group-hike";
     }
 
 }

@@ -113,9 +113,9 @@
                         <span th:text="${hike.description}"/>
                     </div>
                     <!-- Add Join Hike button -->
-                    <form action="/hikes/{id}/join" method="post">
-                        <button type="submit">Join Hike</button>
-                    </form>
+                    <a href="/hikes/{hikeId}/confirm">
+                        <button>Join Hike</button>
+                    </a>
                 </div>
             </td>
         </tr>
