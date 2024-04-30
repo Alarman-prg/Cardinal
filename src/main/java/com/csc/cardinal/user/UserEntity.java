@@ -41,4 +41,11 @@ public class UserEntity {
         this.email = email;
         this.password = password;
     }
+
+    public String getUsername() {
+        return username;
+    }
+
+    public static class getUsername extends UserEntity {
+    }
 }
