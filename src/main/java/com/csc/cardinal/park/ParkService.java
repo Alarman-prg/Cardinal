@@ -89,9 +89,6 @@ public class ParkService {
         if (Objects.nonNull(park.getRating_Count())) {
             parkDB.setRating_Count(park.getRating_Count());
         }
-        if (Objects.nonNull(park.getLength())) {
-            parkDB.setLength(park.getLength());
-        }
         return parkRepository.save(parkDB);
     }
 
