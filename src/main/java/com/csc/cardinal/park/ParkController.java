@@ -3,6 +3,7 @@ package com.csc.cardinal.park;
 
 import com.csc.cardinal.user.GroupHikeEntity;
 import com.csc.cardinal.user.GroupHikeRepository;
+import com.csc.cardinal.user.UserEntity;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
@@ -21,11 +22,20 @@ public class ParkController {
 
     @Autowired
     private GroupHikeRepository groupHikeRepository;
+    @Autowired
+    private ParkRepository parkRepository;
 
     @PostMapping("/addPark")
     public String save(@RequestBody ParkEntity parkEntity) {
         parkService.save(parkEntity);
-        return "redirect:/create-park";
+        return "redirect:/park/parkOp";
+    }
+
+    @GetMapping("/opLogin")
+    public String getHome(Model model) {
+        List<ParkEntity> parkList = parkRepository.findAll();
+        model.addAttribute("parkList", parkList);
+        return "park/parkOp";
     }
 
     @GetMapping("/create-park")

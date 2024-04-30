@@ -27,7 +27,7 @@
 
         /* park list styles*/
         .parks-container {
-            margin-left: 50%;
+
             float: left;
 
         }
@@ -70,7 +70,6 @@
     </style>
 </head>
 <body>
-<a>This is the page</a>
 
 <div class="navbar">
     <ul>
@@ -82,7 +81,7 @@
 <h1>My Parks</h1>
 <table>
     <tbody>
-    <tr th:each="park : ${parkEntityList}">
+    <tr th:each="park: ${parkList}";>
         <td>
             <div class="hike-box">
                 <div class="hike-info">
@@ -101,16 +100,20 @@
                     <span>County</span>
                     <span th:text="${park.county}"/>
                 </div>
-                <div class="hike-info">
+                <!--<div class="hike-info">
                     <span>Rating</span>
-                    <span th:text="${park.rating_total}"/>
-                </div>
+                    <span th:text="toString(${park.rating_total})"/>
+                </div>-->
             </div>
         </td>
     </tr>
+    <tr>
+        <form action=/create-park" method="get">
+            <button type="submit">Add New Trail</button>
+        </form>
+    </tr>
     </tbody>
 </table>
-    <a href="/create-park" class="btn btn-primary">Add New Trail</a>
 </div>
 
 </body>
