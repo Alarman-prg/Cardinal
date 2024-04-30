@@ -30,8 +30,8 @@ public class ParkController {
         model.addAttribute("park", new ParkEntity());
         return "park/create-park";
     }
-    
-/*    @GetMapping("/county")
+    /*
+    @GetMapping("/county")
     public String displayCounty(Model model) {
         List<GroupHikeEntity> hikeList = groupHikeRepository.findAll();
         model.addAttribute("hikeList", hikeList);
