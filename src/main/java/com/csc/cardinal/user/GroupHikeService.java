@@ -71,9 +71,9 @@ public class GroupHikeService {
 //        groupHikeRepository.save(hike);
 //    }
 
-    public void joinHike(long hikeId, UserEntity user) {
-        GroupHikeEntity hike = groupHikeRepository.findById(hikeId)
-                .orElseThrow(() -> new IllegalArgumentException("Invalid hike ID: " + hikeId));
+    public void joinHike(Long groupId, UserEntity user) {
+        GroupHikeEntity hike = groupHikeRepository.findById(groupId)
+                .orElseThrow(() -> new IllegalArgumentException("Invalid hike ID: " + groupId));
         hike.addParticipant(user);
         groupHikeRepository.save(hike);
     }
