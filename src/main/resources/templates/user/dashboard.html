@@ -36,6 +36,31 @@
         .navbar a:hover {
             background-color: #EE6963;
         }
+        .hike-box {
+            border: 1px solid #ccc;
+            padding: 20px;
+            margin-bottom: 20px;
+            border-radius: 5px;
+            background-color: #f9f9f9;
+        }
+
+        .hike-info {
+            margin-bottom: 10px;
+            font-size: 16px;
+            line-height: 1.6;
+        }
+
+        .hike-info span {
+            font-weight: bold;
+            color: #333;
+        }
+
+        /* park list styles*/
+        .parks-container {
+            margin-left: 50%;
+            float: left;
+
+        }
     </style>
 </head>
 
@@ -55,5 +80,38 @@
     <span th:text="${session.email}"></span><br>
     <span th:text="${session.firstName}"></span><br>
     <span th:text="${session.lastName}"></span><br>
+
+<div class="parks-container">
+    <table>
+        <tbody>
+        <tr th:each="park: ${parkList}";
+        <td>
+            <div class="hike-box">
+                <div class="hike-info">
+                    <span>Name:</span>
+                    <span th:text="${park.name}"/>
+                </div>
+                <div class="hike-info">
+                    <span>Description:</span>
+                    <span th:text="${park.description}"/>
+                </div>
+                <div class="hike-info">
+                    <span>Address</span>
+                    <span th:text="${park.address}"/>
+                </div>
+                <div class="hike-info">
+                    <span>County</span>
+                    <span th:text="${park.county}"/>
+                </div>
+                <!--<div class="hike-info">
+                    <span>Rating</span>
+                    <span th:text="toString(${park.rating_total})"/>
+                </div>-->
+            </div>
+        </td>
+        </tr>
+        </tbody>
+    </table>
+</div>
 </body>
 </html>
