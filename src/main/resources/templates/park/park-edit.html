@@ -3,9 +3,9 @@
 
 <head>
     <meta charset="UTF-8">
-    <meta name="author" content="Jacob Greene">
+    <meta name="author" content="Jacob Greene & Andrew Nice">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Admin Edit</title>
+    <title>Trail Edit</title>
     <link href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css" rel="stylesheet">
     <style>
         body {
@@ -17,7 +17,7 @@
 <body>
 <!-- Navigation Bar -->
 <nav class="navbar navbar-expand-lg navbar-dark bg-dark">
-    <a class="navbar-brand" href="/admin">Admin Dashboard</a>
+    <a class="navbar-brand" href="/opLogin">Operator Dashboard</a>
     <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNav"
             aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
         <span class="navbar-toggler-icon"></span>
@@ -34,11 +34,11 @@
     <div class="container-fluid text-center p-5 m-2 mx-auto">
         <div class="row p-1 m-2 mx-auto">
             <div class="col text-center">
-                <h1>Edit a user below (You MUST create a new password) : </h1>
+                <h1>Edit a park below : </h1>
                 <div class="container">
                     <div class="row justify-content-center align-items-center">
                         <div class="col-md-6">
-                            <form th:action="@{/admin/update/{id}(id=${user.id})}" method="post" th:object="${user}">
+                            <form th:action="@{/admin/update/{id}(id=${park.id})}" method="post" th:object="${park}">
                                 <div class="mb-3">
                                     <label for="email"></label>
                                     <input class="bg-primary text-light" type="email" th:field="*{email}" id="email"
