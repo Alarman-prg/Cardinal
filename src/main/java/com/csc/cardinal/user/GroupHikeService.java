@@ -55,15 +55,22 @@ public class GroupHikeService {
     }
 
 
-    public void joinHike(int hikeId, UserEntity user) {
-        // Retrieve the hike from the database
-        GroupHikeEntity hike = groupHikeRepository.findById((long) hikeId)
+//    public void joinHike(int hikeId, UserEntity user) {
+//        // Retrieve the hike from the database
+//        GroupHikeEntity hike = groupHikeRepository.findById((long) hikeId)
+//                .orElseThrow(() -> new IllegalArgumentException("Invalid hike ID: " + hikeId));
+//
+//        // Add the user to the participants of the hike
+//        hike.addParticipant(user);
+//
+//        // Save the updated hike back to the database
+//        groupHikeRepository.save(hike);
+//    }
+
+    public void joinHike(long hikeId, UserEntity user) {
+        GroupHikeEntity hike = groupHikeRepository.findById(hikeId)
                 .orElseThrow(() -> new IllegalArgumentException("Invalid hike ID: " + hikeId));
-
-        // Add the user to the participants of the hike
         hike.addParticipant(user);
-
-        // Save the updated hike back to the database
         groupHikeRepository.save(hike);
     }
 }

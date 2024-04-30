@@ -9,8 +9,13 @@ import java.util.Objects;
 @Service
 public class UserService {
 
+    private static UserRepository userRepository;
+
     @Autowired
-    static UserRepository userRepository;
+    public UserService(UserRepository userRepository) {
+        this.userRepository = userRepository;
+    }
+
 
     /**
      * Add a record to the users table
@@ -76,5 +81,9 @@ public class UserService {
 
     public UserEntity getUsername() {
         return new UserEntity.getUsername();
+    }
+
+    public UserEntity findById(Long id) {
+        return userRepository.findById(id).get();
     }
 }
