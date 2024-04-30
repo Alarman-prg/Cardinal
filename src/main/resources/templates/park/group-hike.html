@@ -3,7 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Group Hikes</title>
+    <title>Counties</title>
     <style>
         /* hike list styles*/
         .form_style_hikes {
@@ -112,7 +112,7 @@
                         <span th:text="${hike.description}"/>
                     </div>
                     <!-- Add Join Hike button -->
-                    <form th:action="@{/hikes/{id}/join(hikeId=${hike.id})}" method="post">
+                    <form action="/hikes/{id}/join" method="post">
                         <button type="submit">Join Hike</button>
                     </form>
                 </div>

@@ -17,11 +17,14 @@ public class GroupHikeController {
     @Autowired
     GroupHikeRepository groupHikeRepository;
 
+
+    private static GroupHikeService groupHikeService;
     @Autowired
-    GroupHikeService groupHikeService;
+    public void setGroupHikeService(GroupHikeService groupHikeService) {
+        this.groupHikeService = groupHikeService;
+    }
 
     private static UserService userService;
-
     @Autowired
     public void setUserService(UserService userService) {
         this.userService = userService;
@@ -36,7 +39,7 @@ public class GroupHikeController {
     public String hikeHome(Model model) {
         List<GroupHikeEntity> hikeList = groupHikeRepository.findAll();
         model.addAttribute("hikeList", hikeList);
-        return "hikes/hike-home";
+        return "park/hike-home";
     }
 
     @GetMapping("/add-hike")
@@ -63,7 +66,7 @@ public class GroupHikeController {
 
     @GetMapping("/user-home")
     public String userHome() {
-        return "dashboard"; // Assuming "user-home" is the name of your HTML template
+        return "user/dashboard"; // Assuming "user-home" is the name of your HTML template
     }
 
     @PostMapping("/hikes/{id}/join")

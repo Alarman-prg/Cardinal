@@ -10,6 +10,9 @@ import org.springframework.web.bind.annotation.*;
 
 import java.util.List;
 
+/***
+ * @Author Andrew & Jacob
+ */
 @Controller
 public class ParkController {
 
@@ -30,17 +33,13 @@ public class ParkController {
         model.addAttribute("park", new ParkEntity());
         return "park/create-park";
     }
-
-    //Redirect to create park page
-    @GetMapping("/addPark")
-    public String redirectAddPark(){return "redirect:/create-park";}
-
-    @GetMapping("/group-hike")
-    public String displayHikes(Model model) {
+    /*
+    @GetMapping("/county")
+    public String displayCounty(Model model) {
         List<GroupHikeEntity> hikeList = groupHikeRepository.findAll();
         model.addAttribute("hikeList", hikeList);
-        return "/park/group-hike";
-    }
+        return "park/county";
+    }*/
 
     @GetMapping("/getParks")
     public List<ParkEntity> findAll(){
@@ -59,7 +58,7 @@ public class ParkController {
         return parkEntityList;
     }
 
-    @GetMapping("/getPark/{operator}")
+    @GetMapping("/parkOp/{operator}")
     public List<ParkEntity> findAllOperators(@PathVariable("operator") String operator, Model model) {
         List<ParkEntity> parkEntityList = parkService.findAllByCounty(operator);
         model.addAttribute("parkEntityList", parkEntityList);
