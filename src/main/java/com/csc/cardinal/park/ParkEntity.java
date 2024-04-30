@@ -49,7 +49,7 @@ public class ParkEntity {
         this.description = description;
         this.rating_Total = 0.0;
         this.rating_Count = 0;
-        this.length = length;
+        this.length = 2.0;
         this.address = address;
         this.county = county;
         this.operator = operator;
