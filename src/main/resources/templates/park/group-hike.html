@@ -44,14 +44,18 @@
         }
 
         /* Navbar styles */
+        .navbar {
+            background-color: #4F6F4C;
+            overflow: hidden;
+        }
+
         .navbar ul {
             list-style-type: none;
-            background-color: #4F6F4C;
-            padding: 0px;
-            margin: 0px;
-            overflow: hidden;
-
+            padding: 0;
+            margin: 0;
+            display: flex;
         }
+
 
         .navbar a {
             color: white;
@@ -60,14 +64,11 @@
             display: block;
             display: inline-block;
             text-align: center;
+            box-sizing: border-box
         }
 
         .navbar a:hover {
             background-color: #EE6963;
-        }
-
-        .navbar li {
-            float: left;
         }
     </style>
 </head>
@@ -75,10 +76,8 @@
 
 <div class="navbar">
     <ul>
-        <li><a href="dashboard">Cardinal</a></li>
-    </ul>
-    <ul>
-        <li><a href="logout">Log out</a></li>
+        <li><a href="/dashboard">Cardinal</a></li>
+        <li><a href="/logout">Log out</a></li>
     </ul>
 </div>
 
