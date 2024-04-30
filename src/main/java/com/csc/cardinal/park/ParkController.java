@@ -22,9 +22,16 @@ public class ParkController {
     @PostMapping("/addPark")
     public String save(@RequestBody ParkEntity parkEntity) {
         parkService.save(parkEntity);
-        return "redirect:/parkOp";
+        return "redirect:/create-park";
     }
-    //Redirect to
+
+    @GetMapping("/create-park")
+    public String showCreateParkForm(Model model) {
+        model.addAttribute("park", new ParkEntity());
+        return "park/create-park";
+    }
+
+    //Redirect to create park page
     @GetMapping("/addPark")
     public String redirectAddPark(){return "redirect:/create-park";}
 
