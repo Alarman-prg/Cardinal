@@ -47,7 +47,7 @@ public class GroupHikeController {
     @PostMapping("/add-hike")
     public String addHike(@ModelAttribute GroupHikeEntity groupHike) {
         groupHikeService.createHike(groupHike);
-        return "redirect:/county"; // Redirect to the hiking list page
+        return "redirect:/group-hike"; // Redirect to the hiking list page
     }
 
     @GetMapping("/create-group-hike")
@@ -67,15 +67,11 @@ public class GroupHikeController {
     }
 
     @PostMapping("/hikes/{id}/join")
-    public String joinHike(@PathVariable("id") Long hikeId, RedirectAttributes redirectAttributes, HttpSession httpSession) {
-        Long userId = (Long) httpSession.getAttribute("userId");
-
-        UserEntity user = userService.findById(userId);
-
-        // Join the hike
+    public String joinHike(@PathVariable("id") long hikeId, HttpSession httpSession) {
+        UserEntity user = (UserEntity) httpSession.getAttribute("user");
         groupHikeService.joinHike(hikeId, user);
-
-        return "redirect:/county";
+        // Redirect back to the hike details page
+        return "redirect:/hikes/{id}";
     }
 
 }

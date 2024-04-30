@@ -9,10 +9,9 @@
         .form_style_hikes {
             width: 600px;
             padding: 20px;
-            border: 1px solid #ccc;
+
             border-radius: 5px;
             background-color: #fff;
-            float: right;
         }
 
         .hike-box {
@@ -21,6 +20,7 @@
             margin-bottom: 20px;
             border-radius: 5px;
             background-color: #f9f9f9;
+            margin: 0 auto;
         }
 
         .hike-info {
@@ -34,22 +34,16 @@
             color: #333;
         }
 
-        /* park list styles*/
-        .parks-container {
-            width: 300px;
-            margin: 50px 20px;
-            float: left;
-        }
-
-        .parks-container ul {
+        .navbar ul {
             list-style-type: none;
-            padding: 0;
+            background-color: #4F6F4C;
+            padding: 0px;
+            margin: 0px;
+            overflow: hidden;
+
         }
 
-        .parks-container li {
-            margin-bottom: 10px;
-        }
-
+        /* Navbar styles */
         .navbar ul {
             list-style-type: none;
             background-color: #4F6F4C;
@@ -68,7 +62,6 @@
             text-align: center;
         }
 
-        /* Navbar styles */
         .navbar a:hover {
             background-color: #EE6963;
         }
@@ -82,14 +75,17 @@
 
 <div class="navbar">
     <ul>
-        <li><a href="user-home">Cardinal</a></li>
+        <li><a href="dashboard">Cardinal</a></li>
+    </ul>
+    <ul>
+        <li><a href="logout">Log out</a></li>
     </ul>
 </div>
 
 
 <div class="form_style_hikes">
     <h2 class="text-center">Group Hikes</h2>
-    <a th:href="@{/add-hike}" class="btn btn-primary">Create a new Group Hike</a>
+    <a th:href="@{/add-hike}" class="btn btn-primary">Post a new Group Hike</a>
     <table>
         <tbody>
         <tr th:each="hike : ${hikeList}">

@@ -23,7 +23,7 @@ public class HikeParticipantsEntity {
     private GroupHikeEntity hike;
 
     @ManyToOne
-    @JoinColumn(name = "usernme")
+    @JoinColumn(name = "user_id")
     private UserEntity user;
 
     public HikeParticipantsEntity(GroupHikeEntity hike, UserEntity user) {

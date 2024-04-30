@@ -35,11 +35,11 @@ public class ParkController {
     @GetMapping("/addPark")
     public String redirectAddPark(){return "redirect:/create-park";}
 
-    @GetMapping("/county")
-    public String displayCounty(Model model) {
+    @GetMapping("/group-hike")
+    public String displayHikes(Model model) {
         List<GroupHikeEntity> hikeList = groupHikeRepository.findAll();
         model.addAttribute("hikeList", hikeList);
-        return "park/county";
+        return "/park/group-hike";
     }
 
     @GetMapping("/getParks")
