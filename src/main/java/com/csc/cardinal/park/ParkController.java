@@ -86,7 +86,7 @@ public class ParkController {
 
     @PostMapping("park/update/{id}")
     public String updatePark(@PathVariable("id") Long id, @ModelAttribute("park") ParkEntity updatedPark) {
-      //  Optional<UserEntity> user = userRepository.findById(id);
+      //  Optional<ParkEntity> park = parkRepository.findById(id);
         parkService.update(updatedPark, id);
 
         return "redirect:/parkOp";
