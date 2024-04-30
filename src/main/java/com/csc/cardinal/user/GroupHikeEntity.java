@@ -5,6 +5,9 @@ import jakarta.persistence.*;
 import lombok.Getter;
 import lombok.Setter;
 
+import java.util.ArrayList;
+import java.util.List;
+
 
 @Getter
 @Setter
@@ -31,6 +34,14 @@ public class GroupHikeEntity {
     @Column
     private String hikeTime;
 
+    @ManyToMany
+    @JoinTable(
+            name = "hike_participants",
+            joinColumns = @JoinColumn(name = "hike_id"),
+            inverseJoinColumns = @JoinColumn(name = "user_id")
+    )
+    private List<UserEntity> participants;
+
     public GroupHikeEntity() {
 
     }
@@ -43,5 +54,7 @@ public class GroupHikeEntity {
         this.description = description;
     }
 
-
+    public void addParticipant(UserEntity user) {
+        participants.add(user);
+    }
 }

@@ -5,7 +5,9 @@ import org.springframework.stereotype.Controller;
 import org.springframework.stereotype.Service;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.*;
+import org.springframework.web.servlet.mvc.support.RedirectAttributes;
 
+import java.security.Principal;
 import java.util.List;
 import java.util.Optional;
 
@@ -17,6 +19,9 @@ public class GroupHikeController {
 
     @Autowired
     GroupHikeService groupHikeService; // Declare the service
+
+    @Autowired
+    private UserService userService;
 
 //    @PostMapping("/grouphikes")
 //    public GroupHikeEntity save(@RequestBody GroupHikeEntity groupHikeEntity) {
@@ -38,7 +43,7 @@ public class GroupHikeController {
     @PostMapping("/add-hike")
     public String addHike(@ModelAttribute GroupHikeEntity groupHike) {
         groupHikeService.createHike(groupHike);
-        return "redirect:/county"; // Redirect to the hiking list page
+        return "redirect:/county";
     }
 
     @GetMapping("/create-group-hike")
@@ -54,7 +59,20 @@ public class GroupHikeController {
 
     @GetMapping("/user-home")
     public String userHome() {
-        return "user/user-home"; // Assuming "user-home" is the name of your HTML template
+        return "user/user-home";
     }
+
+    @PostMapping("/{id}/join")
+    public String joinHike(@PathVariable("id") int hikeId, RedirectAttributes redirectAttributes) {
+        // Get the currently logged-in user
+        UserEntity user = userService.getUsername();
+
+        // Join the hike
+        groupHikeService.joinHike(hikeId, user);
+
+        // Redirect to the hike details page or any other page
+        return "redirect:/county";
+    }
+
 
 }
