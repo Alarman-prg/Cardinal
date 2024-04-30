@@ -13,7 +13,9 @@ import org.springframework.web.servlet.view.RedirectView;
 import java.util.List;
 import java.util.Optional;
 
-
+/***
+ * @Author Jacob Greene
+ */
 @Controller
 public class AdminController {
 
@@ -35,6 +37,8 @@ public class AdminController {
 
     @GetMapping("/admin-reports")
     public String getReports(Model model) {
+        model.addAttribute("userCount", adminService.userRepoLength());
+        model.addAttribute("parkCount", adminService.parkRepoLength());
         return "admin/admin-reports";
     }
 

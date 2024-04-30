@@ -2,9 +2,15 @@
 <html lang="en">
 <head>
     <meta charset="UTF-8">
+    <meta name="author" content="Jacob Greene">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Admin Reports</title>
     <link href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css" rel="stylesheet">
+    <style>
+        body {
+            background-color: #4F6F52;
+        }
+    </style>
 </head>
 <body>
 <nav class="navbar navbar-expand-lg navbar-dark bg-dark">
@@ -16,7 +22,7 @@
     <div class="collapse navbar-collapse" id="navbarNav">
         <ul class="navbar-nav ml-auto">
             <li class="nav-item">
-                <a class="nav-link" href="/">Admin Reports</a>
+                <a class="nav-link" href="/admin-reports">Admin Reports</a>
             </li>
             <li class="nav-item">
                 <a class="nav-link" href="/">Logout</a>
@@ -24,5 +30,26 @@
         </ul>
     </div>
 </nav>
+
+
+<div class="row">
+    <div class="container col-md-6">
+        <div class="row bg-white justify-content-center align-content-center">
+            <div th:if="${userError}">
+                <p th:text="${userError}" style="color: red;"></p>
+            </div>
+            <p>You have <span th:text="${userCount}"></span> different records for users!</p>
+        </div>
+    </div>
+    <div class="fluid-container col-md-6">
+        <div class="row bg-white justify-content-center align-content-center">
+            <div th:if="${parkError}">
+                <p th:text="${parkError}" style="color: red;"></p>
+            </div>
+            <p>You have <span th:text="${parkCount}"></span> different records for parks!</p>
+        </div>
+    </div>
+</div>
+
 </body>
 </html>
