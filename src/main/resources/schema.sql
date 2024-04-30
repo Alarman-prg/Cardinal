@@ -14,3 +14,16 @@ CREATE TABLE hike_participants (
     FOREIGN KEY (hike_id) REFERENCES hikes(id),
     PRIMARY KEY (user_id, hike_id)
 );
+
+CREATE TABLE IF NOT EXISTS 'parks'
+(
+    'id' int AUTO_INCREMENT PRIMARY KEY,
+    'name' VARCHAR(255) NOT NULL,
+    'description' VARCHAR(255) NOT NULL,
+    'rating_total' float(53) NOT NULL,
+    'rating_count' int NOT NULL,
+    'length' float(53) NOT NULL,
+    'address' VARCHAR(255) NOT NULL,
+    'county' VARCHAR(255) NOT NULL,
+    'operator' VARCHAR(255) NOT NULL,
+);
