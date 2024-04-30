@@ -39,10 +39,11 @@ public class UserEntity {
     public UserEntity() {
 
     }
-    public UserEntity(String firstName, String lastName, String email, String password) {
+    public UserEntity(String firstName, String lastName, String email, String username, String password) {
         this.firstName = firstName;
         this.lastName = lastName;
         this.email = email;
+        this.username = username;
         this.password = password;
     }
 
@@ -52,4 +53,14 @@ public class UserEntity {
 
     public static class getUsername extends UserEntity {
     }
+
+    public boolean usernameEquals(Object anObject) {
+        return username.equals(anObject);
+    }
+
+    public boolean emailEquals(Object anObject) {
+        return email.equals(anObject);
+    }
+
+
 }
