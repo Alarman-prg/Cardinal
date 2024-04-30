@@ -52,29 +52,10 @@ public class ParkController {
         return "park/group-hike";
     }
 
-    /*@GetMapping("/getParks")
-    public List<ParkEntity> findAll(){
-        return parkService.fetch();
-    }*/
-
     @GetMapping("/getPark")
     public ParkEntity findById(@RequestParam int id) {
         return parkService.findById(id);
     }
-
-    /*@GetMapping("/getPark/{county}")
-    public List<ParkEntity> findAllCounty(@PathVariable("county") String county, Model model) {
-        List<ParkEntity> parkEntityList = parkService.findAllByCounty(county);
-        model.addAttribute("parkEntityList", parkEntityList);
-        return parkEntityList;
-    }*/
-
-    /*@GetMapping("/parkOp/{operator}")
-    public List<ParkEntity> findAllOperators(@PathVariable("operator") String operator, Model model) {
-        List<ParkEntity> parkEntityList = parkService.findAllByCounty(operator);
-        model.addAttribute("parkEntityList", parkEntityList);
-        return parkEntityList;
-    }*/
 
     @GetMapping("park/edit/{id}")
     public String showUpdateForm(@PathVariable("id") Long id, Model model) {
@@ -84,39 +65,17 @@ public class ParkController {
         return "park/park-edit"; // Return the name of your update form template
     }
 
-    @PostMapping("park/update/{id}")
+    @GetMapping("park/update/{id}")
     public String updatePark(@PathVariable("id") Long id, @ModelAttribute("park") ParkEntity updatedPark) {
       //  Optional<ParkEntity> park = parkRepository.findById(id);
         parkService.update(updatedPark, id);
 
-        return "redirect:/parkOp";
+        return "park/park-edit";
     }
 
     @DeleteMapping("/parkOp/{id}")
     public void delete(@PathVariable Long id) {
         parkService.delete(id);
     }
-
-
-
-/*@PostMapping("/parks")                                            A bit of confusion when merging, this might not be necessary
-    public ParkEntity save(@RequestBody ParkEntity parkEntity) {
-        return parkService.save(parkEntity);
-    }
-
-
-
-    @PutMapping("/parks/{id}")
-    public ParkEntity update(
-            @RequestBody ParkEntity parkEntity,
-            @PathVariable Long id
-    ){
-        return parkService.update(parkEntity, id);
-    };
-
-    @DeleteMapping("/parks/{id}")
-    public void delete(@PathVariable Long id){
-        parkService.delete(id);
-    }*/
 
 }

@@ -38,34 +38,34 @@
                 <div class="container">
                     <div class="row justify-content-center align-items-center">
                         <div class="col-md-6">
-                            <form th:action="@{/park/update/{id}(id=${park.id})}" method="post" th:object="${park}">
-                                <div class="mb-3">
-                                    <label for="name"></label>
-                                    <input class="bg-primary text-light" type="text" th:field="*{name}" id="name"
-                                           placeholder="Park Name"/><br/>
-                                </div>
-                                <div class="mb-3">
-                                    <label for="description"></label>
-                                    <input class="bg-primary text-light" type="text" th:field="*{description}"
-                                           id="description" placeholder="Park Desription"/><br/>
-                                </div>
-                                <div class="mb-3">
-                                    <label for="address"></label>
-                                    <input class="bg-primary text-light" type="password" th:field="*{address}"
-                                           id="address" placeholder="Park Address"/><br/>
-                                </div>
-                                <div class="mb-3">
-                                    <label for="County"></label>
-                                    <input class="bg-primary text-light" type="text" th:field="*{firstName}"
-                                           id="firstname" placeholder="First Name"/><br/>
-                                </div>
-                                <div class="mb-3">
-                                    <label for="lastname"></label>
-                                    <input class="bg-primary text-light" type="text" th:field="*{lastName}"
-                                           id="lastname" placeholder="Last Name"/><br/>
-                                </div>
-                                <button type="submit" class="btn btn-primary">Submit</button>
-                            </form>
+<!--                            <form th:action="@{/admin/update/{id}(id=${park.id})}" method="post" th:object="${park}">-->
+<!--                                <div class="mb-3">-->
+<!--                                    <label for="email"></label>-->
+<!--                                    <input class="bg-primary text-light" type="email" th:field="*{email}" id="email"-->
+<!--                                           placeholder="Email"/><br/>-->
+<!--                                </div>-->
+<!--                                <div class="mb-3">-->
+<!--                                    <label for="username"></label>-->
+<!--                                    <input class="bg-primary text-light" type="text" th:field="*{username}"-->
+<!--                                           id="username" placeholder="Username"/><br/>-->
+<!--                                </div>-->
+<!--                                <div class="mb-3">-->
+<!--                                    <label for="password"></label>-->
+<!--                                    <input class="bg-primary text-light" type="password" th:field="*{password}"-->
+<!--                                           id="password" placeholder="Password"/><br/>-->
+<!--                                </div>-->
+<!--                                <div class="mb-3">-->
+<!--                                    <label for="firstname"></label>-->
+<!--                                    <input class="bg-primary text-light" type="text" th:field="*{firstName}"-->
+<!--                                           id="firstname" placeholder="First Name"/><br/>-->
+<!--                                </div>-->
+<!--                                <div class="mb-3">-->
+<!--                                    <label for="lastname"></label>-->
+<!--                                    <input class="bg-primary text-light" type="text" th:field="*{lastName}"-->
+<!--                                           id="lastname" placeholder="Last Name"/><br/>-->
+<!--                                </div>-->
+<!--                                <button type="submit" class="btn btn-primary">Submit</button>-->
+<!--                            </form>-->
                         </div>
                     </div>
                 </div>
