@@ -23,10 +23,8 @@ public class AdminController {
 
     @Autowired
     UserRepository userRepository;
-
     @Autowired
     AdminService adminService;
-
     @Autowired
     private UserService userService;
     @Autowired
