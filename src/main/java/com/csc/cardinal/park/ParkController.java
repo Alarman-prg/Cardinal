@@ -31,10 +31,6 @@ public class ParkController {
         return "park/create-park";
     }
 
-    //Redirect to create park page
-    @GetMapping("/addPark")
-    public String redirectAddPark(){return "redirect:/create-park";}
-
     @GetMapping("/county")
     public String displayCounty(Model model) {
         List<GroupHikeEntity> hikeList = groupHikeRepository.findAll();
@@ -59,7 +55,7 @@ public class ParkController {
         return parkEntityList;
     }
 
-    @GetMapping("/getPark/{operator}")
+    @GetMapping("/parkOp/{operator}")
     public List<ParkEntity> findAllOperators(@PathVariable("operator") String operator, Model model) {
         List<ParkEntity> parkEntityList = parkService.findAllByCounty(operator);
         model.addAttribute("parkEntityList", parkEntityList);
